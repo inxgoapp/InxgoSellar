@@ -26,7 +26,6 @@ const logo = require("../../assets/logo.png");
 const apple = require("../../assets/svg/Linkedin.png");
 const google = require("../../assets/google.png");
 const facebook = require("../../assets/facebook.png");
-const Loading = require("../../assets/Loading_icon.gif");
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openeye = require("../../assets/openeye.png");

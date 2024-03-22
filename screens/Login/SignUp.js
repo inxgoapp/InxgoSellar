@@ -21,7 +21,6 @@ import signUpStyle from "../../style/SignUp";
 import apple from "../../assets/apple.png";
 import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
-import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");

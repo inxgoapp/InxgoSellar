@@ -17,7 +17,6 @@ import appStyle from "../../style/login_start";
 import profile from "../../style/profile";
 import arrow_back from "../../assets/arrow_back.png";
 import image_upload from "../../assets/image_upload.png";
-import Loading from "../../assets/Loading_icon.gif";
 import arrowdown from "../../assets/svg/arrowdown.svg";
 
 const gender = ["Male", "Female"];
@@ -152,23 +151,6 @@ const Index = ({ navigation }) => {
           />
         </View>
         {/* Add other input fields similarly */}
-        {!flag ? (
-          <TouchableOpacity style={profile.appButtonContainer}>
-            <Text style={appStyle.appButtonText}>Continue</Text>
-          </TouchableOpacity>
-        ) : (
-          <Image
-            style={{
-              width: 200,
-              height: 100,
-              alignSelf: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              resizeMode: "stretch",
-            }}
-            source={Loading}
-          />
-        )}
       </View>
     </ScrollView>
   );

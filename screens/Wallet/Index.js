@@ -10,7 +10,6 @@ import profile from "../../style/profile";
 import Payment from "./Payment";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
-const Loading = require("../../assets/Loading_icon.gif");
 const money = require("../../assets/icons/money.png");
 const creditcard = require("../../assets/icons/creditcard.png");
 

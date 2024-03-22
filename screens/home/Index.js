@@ -15,6 +15,7 @@ import ApiCall from "../../Services/ApiCall";
 import MyGlobleSetting from "../../Services/MyGlobleSetting";
 import { NavigationContainer } from "@react-navigation/native";
 import SvgUri from "react-native-svg-uri";
+import LocationComponent from "../../components/MyLocation";
 //const image_url = MyGlobleSetting.state.imageUrl;
 const bell = require("../../assets/icons/bell.png");
 const setting = require("../../assets/icons/setting.png");
@@ -82,8 +83,7 @@ const Index = ({ navigation }) => {
         <ScrollView keyboardDismissMode={"on-drag"}>
           <View style={appStyle.cardContainer}>
             <View style={appStyle.leftContainer}>
-              <Text style={appStyle.rowLabelText}>Let’s Hire</Text>
-              <Text style={appStyle.rowLabelText}>Right Supplier with Us!</Text>
+              <LocationComponent />
             </View>
             <View style={appStyle.rightContainer}>
               <Image style={appStyle.image} source={bell} />

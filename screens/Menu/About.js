@@ -26,7 +26,6 @@ import Toast from "react-native-toast-message";
 import MyGlobleSetting from "../../Services/MyGlobleSetting";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
-const Loading = require("../../assets/Loading_icon.gif");
 const rightarrow = require("../../assets/rightarrow.png");
 import ProfileSvg from "../../assets/svg/profile.svg";
 import dangercircle from "../../assets/svg/dangercircle.svg";

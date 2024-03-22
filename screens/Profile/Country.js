@@ -14,7 +14,6 @@ import countryArray from "./countryArray";
 import search from "../../assets/svg/search.svg";
 import my_location from "../../assets/svg/my_location.svg";
 import arrow_back from "../../assets/arrow_back.png";
-import Loading from "../../assets/Loading_icon.gif";
 
 const Country = ({ navigation }) => {
   const [flag, setFlag] = useState(true);
@@ -136,23 +135,6 @@ const Country = ({ navigation }) => {
               />
             </View>
           ))}
-        {flag ? (
-          <TouchableOpacity style={profile.appButtonContainer}>
-            <Text style={appStyle.appButtonText}>Continue</Text>
-          </TouchableOpacity>
-        ) : (
-          <Image
-            style={{
-              width: 200,
-              height: 100,
-              alignSelf: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              resizeMode: "stretch",
-            }}
-            source={Loading}
-          />
-        )}
       </View>
     </ScrollView>
   );
