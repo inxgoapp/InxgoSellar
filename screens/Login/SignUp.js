@@ -64,7 +64,7 @@ const SignUp = ({ navigation }) => {
 
     // Add your axios request here
     axios
-      .post("http://192.168.100.12:8082/api/register", formData, {
+      .post("http://192.168.0.109:8081/api/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

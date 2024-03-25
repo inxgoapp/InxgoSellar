@@ -20,6 +20,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import CustomModal from "../../components/CustomModal";
 
 import wallet from "../../style/wallet";
 import MyMaps from "../../components/MyMaps";
@@ -51,6 +52,7 @@ const Detail = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+      <CustomModal title="This will navigate to Google Maps App. Please confirm by selecting 'Yes' or 'No' below" />
       <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
         <View style={profile.welcome}>
           <Image style={profile.arrow_back} source={arrow_back} />

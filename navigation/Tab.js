@@ -59,7 +59,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "Home" : "Detail"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
