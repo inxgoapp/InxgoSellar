@@ -289,6 +289,8 @@ const Detail = ({ navigation }) => {
                   right: 3,
                   fontWeight: "600",
                   color: "blue",
+                  width: 100,
+                  height: 100,
                 }}
               >
                 <Text
@@ -307,7 +309,13 @@ const Detail = ({ navigation }) => {
             ) : (
               <TouchableOpacity
                 onPress={() => setShowFullText(false)}
-                style={{ position: "absolute", bottom: 0, right: 10 }}
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  right: 10,
+                  width: 100,
+                  height: 100,
+                }}
               >
                 <Text
                   style={{
