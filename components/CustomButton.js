@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { responsiveWidth } from "react-native-responsive-dimensions";
 
-const CustomButton = ({ title, onPress, color, width, height }) => {
+const CustomButton = ({ buttontitle, onPress, color, width, height }) => {
   return (
     <View style={{ alignSelf: "center", top: 60 }}>
       <TouchableOpacity
@@ -12,7 +12,7 @@ const CustomButton = ({ title, onPress, color, width, height }) => {
         ]}
         onPress={onPress}
       >
-        <Text style={styles.buttonText}>{title}</Text>
+        <Text style={styles.buttonText}>{buttontitle}</Text>
       </TouchableOpacity>
     </View>
   );
