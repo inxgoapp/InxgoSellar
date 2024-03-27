@@ -78,7 +78,7 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: 50, backgroundColor: "#fff" }}>
+    <View style={{ flex: 1, paddingTop: 10, backgroundColor: "#fff" }}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <ScrollView keyboardDismissMode={"on-drag"}>
           <View style={appStyle.cardContainer}>
@@ -101,7 +101,7 @@ const Index = ({ navigation }) => {
           </View>
           <View style={appStyle.cardContainer}>
             <View style={appStyle.leftContainerRight}>
-              <Text style={appStyle.rowLabelText}>Categories</Text>
+              <Text style={appStyle.rowLabelText}>My Services</Text>
             </View>
             <View style={appStyle.rightContainerSmall}>
               <TouchableOpacity onPress={HandleViewAll}>
@@ -158,30 +158,6 @@ const Index = ({ navigation }) => {
             </View>
             <View style={appStyle.rightContainerPromotion}>
               <Image style={appStyle.rightIconPromotion} source={promtion} />
-            </View>
-          </View>
-
-          <View style={appStyle.promtionTwo}>
-            <View style={appStyle.leftContainerPromotion}>
-              <Text
-                style={{
-                  width: "70%",
-                  fontSize: 15,
-                  color: "#000",
-                  bottom: 9,
-                  fontWeight: "Bold",
-                }}
-              >
-                Contact Support
-              </Text>
-              <Text
-                style={{ width: "80%", fontSize: 12, color: "#000", bottom: 9 }}
-              >
-                couldn’t find what you need! Let’s us hire for you..
-              </Text>
-            </View>
-            <View style={appStyle.rightContainerPromotion}>
-              <Image style={appStyle.rightIconPromotion} source={promotion1} />
             </View>
           </View>
 

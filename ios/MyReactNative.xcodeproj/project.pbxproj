@@ -15,6 +15,9 @@
 		96905EF65AED1B983A6B3ABC /* libPods-MyReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MyReactNative.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		54D54FB4534A4788A7DAF897 /* Inter Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */; };
+		1852E2FE28D14AE59C7493F5 /* Pirata One Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */; };
+		329D1F25DC4547A783A397B6 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F7DBD9239FE4D27BA420663 /* font.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MyReactNative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */ = {isa = PBXFileReference; name = "Inter Regular.ttf"; path = "../assets/fonts/Inter Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */ = {isa = PBXFileReference; name = "Pirata One Regular.ttf"; path = "../assets/fonts/Pirata One Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0F7DBD9239FE4D27BA420663 /* font.ttf */ = {isa = PBXFileReference; name = "font.ttf"; path = "../assets/fonts/font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				A8F48C365DCF4D9DB71B70E8 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +142,17 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
+		};
+		A8F48C365DCF4D9DB71B70E8 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */,
+				A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */,
+				0F7DBD9239FE4D27BA420663 /* font.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -200,6 +218,9 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				54D54FB4534A4788A7DAF897 /* Inter Regular.ttf in Resources */,
+				1852E2FE28D14AE59C7493F5 /* Pirata One Regular.ttf in Resources */,
+				329D1F25DC4547A783A397B6 /* font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
