@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../constants/color";
+import { Regular, Medium, Bold } from "../constants/fonts";
 
 const homeStyles = StyleSheet.create({
   cardContainer: {
@@ -41,11 +43,11 @@ const homeStyles = StyleSheet.create({
     // marginRight:100,
   },
   rowLabelText: {
-    fontSize: 20,
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
-    fontWeight: "Bold",
-    fontFamily: "Inter Regular",
+    fontSize: 14,
+    fontWeight: "500",
+    fontFamily: Medium,
   },
   rowLabelTextRight: {
     fontSize: 13,
@@ -147,6 +149,13 @@ const homeStyles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 5,
     flexWrap: "wrap",
+  },
+  CurrentJobView: {},
+  CurrentJobTitle: {
+    fontSize: 14,
+    fontWeight: "500",
+    fontFamily: Medium,
+    color: Colors.txtColor,
   },
   promtionTwo: {
     width: "90%",

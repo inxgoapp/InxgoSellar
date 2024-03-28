@@ -18,6 +18,9 @@
 		54D54FB4534A4788A7DAF897 /* Inter Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */; };
 		1852E2FE28D14AE59C7493F5 /* Pirata One Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */; };
 		329D1F25DC4547A783A397B6 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F7DBD9239FE4D27BA420663 /* font.ttf */; };
+		91E71EED5BE24A61A732EAB3 /* Inter Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD65154BBA9484E8D46BB09 /* Inter Bold.ttf */; };
+		C730A9B419B444D893EBD3EF /* Inter Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E11D2C8A74693BAB3284D /* Inter Medium.ttf */; };
+		1D1EFF0E55FD40E8AFF526FE /* Inter Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 045B14C1EA45426EBB44DF2C /* Inter Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */ = {isa = PBXFileReference; name = "Inter Regular.ttf"; path = "../assets/fonts/Inter Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */ = {isa = PBXFileReference; name = "Pirata One Regular.ttf"; path = "../assets/fonts/Pirata One Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0F7DBD9239FE4D27BA420663 /* font.ttf */ = {isa = PBXFileReference; name = "font.ttf"; path = "../assets/fonts/font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7BD65154BBA9484E8D46BB09 /* Inter Bold.ttf */ = {isa = PBXFileReference; name = "Inter Bold.ttf"; path = "../assets/fonts/Inter Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5F8E11D2C8A74693BAB3284D /* Inter Medium.ttf */ = {isa = PBXFileReference; name = "Inter Medium.ttf"; path = "../assets/fonts/Inter Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		045B14C1EA45426EBB44DF2C /* Inter Thin.ttf */ = {isa = PBXFileReference; name = "Inter Thin.ttf"; path = "../assets/fonts/Inter Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,9 @@
 				C62EC67E3E2E4CE49D1CB343 /* Inter Regular.ttf */,
 				A3ED4CD83403403DBEA0AE4D /* Pirata One Regular.ttf */,
 				0F7DBD9239FE4D27BA420663 /* font.ttf */,
+				7BD65154BBA9484E8D46BB09 /* Inter Bold.ttf */,
+				5F8E11D2C8A74693BAB3284D /* Inter Medium.ttf */,
+				045B14C1EA45426EBB44DF2C /* Inter Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -221,6 +230,9 @@
 				54D54FB4534A4788A7DAF897 /* Inter Regular.ttf in Resources */,
 				1852E2FE28D14AE59C7493F5 /* Pirata One Regular.ttf in Resources */,
 				329D1F25DC4547A783A397B6 /* font.ttf in Resources */,
+				91E71EED5BE24A61A732EAB3 /* Inter Bold.ttf in Resources */,
+				C730A9B419B444D893EBD3EF /* Inter Medium.ttf in Resources */,
+				1D1EFF0E55FD40E8AFF526FE /* Inter Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

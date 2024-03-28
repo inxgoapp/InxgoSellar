@@ -81,6 +81,9 @@
 		<string>Inter Regular.ttf</string>
 		<string>Pirata One Regular.ttf</string>
 		<string>font.ttf</string>
+		<string>Inter Bold.ttf</string>
+		<string>Inter Medium.ttf</string>
+		<string>Inter Thin.ttf</string>
 	</array>
 </dict>
 </plist>

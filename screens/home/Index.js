@@ -16,6 +16,7 @@ import MyGlobleSetting from "../../Services/MyGlobleSetting";
 import { NavigationContainer } from "@react-navigation/native";
 import SvgUri from "react-native-svg-uri";
 import LocationComponent from "../../components/MyLocation";
+import { CommonImages } from "../../constants/Images";
 //const image_url = MyGlobleSetting.state.imageUrl;
 const bell = require("../../assets/icons/bell.png");
 const setting = require("../../assets/icons/setting.png");
@@ -140,7 +141,9 @@ const Index = ({ navigation }) => {
                   </View>
                 ))}
           </View>
-
+          <View style={appStyle.CurrentJobView}>
+            <Text style={appStyle.CurrentJobTitle}>Current Job</Text>
+          </View>
           <View style={appStyle.smallRounderContainer}>
             <View style={appStyle.leftContainerPromotion}>
               <Text
