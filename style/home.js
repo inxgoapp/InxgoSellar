@@ -29,9 +29,9 @@ const homeStyles = StyleSheet.create({
     flexDirection: "row",
   },
   leftContainerRight: {
-    paddingLeft: "10%",
-    width: "70%",
-    height: 50,
+    paddingLeft: "8%",
+    width: "84%",
+    height: 35,
   },
   rightContainer: {
     alignItems: "flex-end",
@@ -49,12 +49,18 @@ const homeStyles = StyleSheet.create({
     fontWeight: "500",
     fontFamily: Medium,
   },
+  Myservicesall: {
+    flexDirection: "row",
+    // backgroundColor: "red",
+  },
+
   rowLabelTextRight: {
-    fontSize: 13,
+    fontSize: 12,
     flex: 1,
     top: 2,
+    fontFamily: Regular,
     flexDirection: "row",
-    fontWeight: "Bold",
+    fontWeight: "300",
   },
   image: {
     width: 20,
@@ -150,7 +156,11 @@ const homeStyles = StyleSheet.create({
     marginTop: 5,
     flexWrap: "wrap",
   },
-  CurrentJobView: {},
+  CurrentJobView: {
+    marginTop: 13,
+    paddingLeft: "8%",
+    // backgroundColor: "red",
+  },
   CurrentJobTitle: {
     fontSize: 14,
     fontWeight: "500",
@@ -187,11 +197,16 @@ const homeStyles = StyleSheet.create({
   },
   download: {
     backgroundColor: "#fff",
-    height: 20,
-    width: 110,
+    height: 25,
+    width: 80,
+
     // fontSize:8,
     borderRadius: 16,
+    textAlignVertical: "center",
     textAlign: "center",
+    fontFamily: Regular,
+    fontSize: 8,
+    fontWeight: "400",
   },
 });
 export default homeStyles;

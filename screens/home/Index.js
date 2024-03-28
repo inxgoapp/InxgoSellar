@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   StyleSheet,
   Text,
@@ -15,8 +16,8 @@ import ApiCall from "../../Services/ApiCall";
 import MyGlobleSetting from "../../Services/MyGlobleSetting";
 import { NavigationContainer } from "@react-navigation/native";
 import SvgUri from "react-native-svg-uri";
+import { Regular, Bold, Medium } from "../../constants/fonts";
 import LocationComponent from "../../components/MyLocation";
-import { CommonImages } from "../../constants/Images";
 //const image_url = MyGlobleSetting.state.imageUrl;
 const bell = require("../../assets/icons/bell.png");
 const setting = require("../../assets/icons/setting.png");
@@ -25,7 +26,8 @@ const labour = require("../../assets/icons/labour.png");
 const barber = require("../../assets/icons/barber.png");
 const promtion = require("../../assets/icons/promtion.png");
 const promotion1 = require("../../assets/icons/promotion1.png");
-
+import { CommonImages } from "../../constants/Images";
+import SellarCard from "../../components/SellarCard";
 const Index = ({ navigation }) => {
   const [data, setData] = useState({});
   const [flag, setFlag] = useState(false);
@@ -86,8 +88,13 @@ const Index = ({ navigation }) => {
             <View style={appStyle.leftContainer}>
               <LocationComponent />
             </View>
+
             <View style={appStyle.rightContainer}>
-              <Image style={appStyle.image} source={bell} />
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Notification")}
+              >
+                <Image style={appStyle.image} source={bell} />
+              </TouchableOpacity>
             </View>
           </View>
           <View style={appStyle.cardContainer}>
@@ -104,13 +111,100 @@ const Index = ({ navigation }) => {
             <View style={appStyle.leftContainerRight}>
               <Text style={appStyle.rowLabelText}>My Services</Text>
             </View>
+
             <View style={appStyle.rightContainerSmall}>
               <TouchableOpacity onPress={HandleViewAll}>
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
             </View>
           </View>
-          <View style={appStyle.categoryCardContainer}>
+          <View style={appStyle.Myservicesall}>
+            <TouchableOpacity onPress={HandleViewAll}>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View style={{ marginLeft: 10, paddingHorizontal: 20 }}>
+                  <Image
+                    style={{ width: 60, height: 60 }}
+                    source={CommonImages.plumber}
+                  />
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontFamily: Regular,
+                      fontSize: 11,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Plumber
+                  </Text>
+                </View>
+                <View style={{ marginRight: 10 }}>
+                  <Image
+                    style={{ width: 60, height: 60 }}
+                    source={CommonImages.electrition}
+                  />
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontFamily: Regular,
+                      fontSize: 11,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Electrician
+                  </Text>
+                </View>
+                <View style={{ marginRight: 10 }}>
+                  <Image
+                    style={{ width: 60, height: 60 }}
+                    source={CommonImages.manson}
+                  />
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontFamily: Regular,
+                      fontSize: 11,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Mason
+                  </Text>
+                </View>
+                <View style={{ marginRight: 10 }}>
+                  <Image
+                    style={{ width: 60, height: 60 }}
+                    source={CommonImages.welder}
+                  />
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontFamily: Regular,
+                      fontSize: 11,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Welder
+                  </Text>
+                </View>
+                <View>
+                  <Image
+                    style={{ width: 60, height: 60 }}
+                    source={CommonImages.barber}
+                  />
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontFamily: Regular,
+                      fontSize: 11,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Barber
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          {/* <View style={appStyle.categoryCardContainer}>
             {typeof filteredData !== "undefined" &&
               Object.keys(filteredData)
                 .slice(0, limit)
@@ -140,10 +234,11 @@ const Index = ({ navigation }) => {
                     </View>
                   </View>
                 ))}
-          </View>
+          </View> */}
           <View style={appStyle.CurrentJobView}>
             <Text style={appStyle.CurrentJobTitle}>Current Job</Text>
           </View>
+          <SellarCard />
           <View style={appStyle.smallRounderContainer}>
             <View style={appStyle.leftContainerPromotion}>
               <Text
@@ -152,10 +247,11 @@ const Index = ({ navigation }) => {
                   fontSize: 15,
                   color: "#000",
                   bottom: 9,
-                  fontWeight: "Bold",
+                  fontFamily: Medium,
+                  fontWeight: "500",
                 }}
               >
-                Become our Partner and get your dream work here
+                Become our Partner and get service requests near you{" "}
               </Text>
               <Text style={appStyle.download}>Download Now</Text>
             </View>
