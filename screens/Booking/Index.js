@@ -11,6 +11,7 @@ import Complete from "../Booking/Complete";
 import Pending from "../Booking/Pending";
 import Footer from "../Footer/Index";
 import { NavigationContainer } from "@react-navigation/native";
+import Accepted from "./Accepted";
 
 const arrow_back = require("../../assets/arrow_back.png");
 
@@ -19,8 +20,9 @@ const Index = ({ navigation }) => {
     index: 0,
     routes: [
       { key: "first", title: "Incoming" },
-      { key: "second", title: "In-Progress" },
-      { key: "third", title: "Completed" },
+      { key: "second", title: "Accepted" },
+      { key: "third", title: "In-Progress" },
+      { key: "fourth", title: "Completed" },
     ],
   });
 
@@ -66,11 +68,16 @@ const Index = ({ navigation }) => {
 
   const SecondRoute = () => (
     <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
-      <Progress navigation={navigation} />
+      <Accepted navigation={navigation} />
     </View>
   );
 
   const ThirdRoute = () => (
+    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
+      <Progress navigation={navigation} />
+    </View>
+  );
+  const fourthRoute = () => (
     <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
       <Complete navigation={navigation} />
     </View>
@@ -93,6 +100,7 @@ const Index = ({ navigation }) => {
           first: FirstRoute,
           second: SecondRoute,
           third: ThirdRoute,
+          fourth: fourthRoute,
         })}
       />
       <Footer flag={"Booking"} navigation={navigation} />
@@ -116,7 +124,7 @@ const styles = StyleSheet.create({
   },
   tabBarButton: {
     flex: 1,
-    width: responsiveWidth(33), // Adjust width as needed
+    width: responsiveWidth(3), // Adjust width as needed
     height: 40, // Adjust height as needed
     alignItems: "center",
     justifyContent: "center",

@@ -32,6 +32,7 @@ import {
   NewPassword,
   LocationBottomSheet,
   RateSupplierBSheet,
+  Tracker,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -59,7 +60,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "Home" : "Booking"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -84,6 +85,7 @@ const Tabs = (props) => {
       <Tab.Screen name="LocationBottomSheet" component={LocationBottomSheet} />
       <Tab.Screen name="RateSupplierBSheet" component={RateSupplierBSheet} />
       <Tab.Screen name="Accepted" component={Accepted} />
+      <Tab.Screen name="Tracker" component={Tracker} />
 
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />

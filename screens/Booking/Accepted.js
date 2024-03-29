@@ -1,139 +1,62 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { TabView, SceneMap, TabBar } from "react-native-tab-view";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import ApiCall from "../../Services/ApiCall";
-import Toast from "react-native-toast-message";
-import profile from "../../style/profile";
-import { responsiveWidth } from "react-native-responsive-dimensions";
-import Complete from "../Booking/Complete";
-import Pending from "../Booking/Pending";
-import Footer from "../Footer/Index";
-import Tracker from "./Tracker";
-import { NavigationContainer } from "@react-navigation/native";
-
-
-const arrow_back = require("../../assets/arrow_back.png");
+import React from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import wallet from "../../style/wallet";
+import image_upload from "../../assets/image_upload.png";
+import rightarrow from "../../assets/rightarrow.png";
 
 const Accepted = ({ navigation }) => {
-  const [state, setState] = useState({
-    index: 0,
-    routes: [
-      { key: "first", title: "Incoming" },
-      { key: "second", title: "In-Progress" },
-      { key: "third", title: "Completed" },
-    ],
-  });
-
-  const setIndex = (index) => {
-    setState({ ...state, index });
-  };
-
-  const renderTabBar = (props) => (
-    <TabBar
-      {...props}
-      style={styles.tabBar}
-      labelStyle={styles.tabBarLabel}
-      indicatorStyle={styles.tabBarIndicator}
-      renderLabel={({ route, focused }) => (
-        <TouchableOpacity
-          style={[styles.tabBarButton, focused && styles.tabBarButtonFocused]}
-          onPress={() =>
-            setIndex(state.routes.findIndex((r) => r.key === route.key))
-          }
-        >
-          <Text
-            style={[
-              styles.tabBarLabelText,
-              focused && styles.tabBarLabelFocused,
-            ]}
-          >
-            {capitalizeFirstLetter(route.title)}
-          </Text>
-        </TouchableOpacity>
-      )}
-    />
-  );
-
-  const capitalizeFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  };
-
-  const FirstRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
-      <Pending navigation={navigation} />
-    </View>
-  );
-
-  const SecondRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
-      <Tracker navigation={navigation} />
-    </View>
-  );
-
-  const ThirdRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
-      <Complete navigation={navigation} />
-    </View>
-  );
-
   return (
-    <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
-      <Toast />
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <View style={profile.welcome}>
-          <Image style={profile.arrow_back} source={arrow_back} />
-          <Text style={profile.welcomeText}>My Jobs</Text>
+    <View
+      style={{
+        marginTop: "10%",
+        elevation: 10,
+        marginRight: "2%",
+        marginLeft: "2%",
+        backgroundColor: "#FFFFFF",
+        // borderRadius: 10,
+      }}
+    >
+      <View style={{ flexDirection: "row", width: "100%", marginTop: 20 }}>
+        <Image style={wallet.image} source={image_upload} />
+        <View style={wallet.LeftContainer}>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
+          </View>
+          <Text style={{ fontSize: 12 }}>Plumber</Text>
         </View>
-      </TouchableOpacity>
-      <TabView
-        navigationState={{ index: state.index, routes: state.routes }}
-        onIndexChange={setIndex}
-        renderTabBar={renderTabBar}
-        renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
-          third: ThirdRoute,
-        })}
-      />
-      <Footer flag={"Booking"} navigation={navigation} />
+        <View style={wallet.RightContainer}>
+          <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+            <View
+              style={{
+                right: 10,
+                width: 60,
+                height: 20,
+                backgroundColor: "#FFC44D",
+                alignSelf: "center",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontSize: 14 }}>Active</Text>
+            </View>
+          </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
+            <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+              <Image
+                style={{
+                  marginTop: 20,
+                  marginBottom: 30,
+                  width: 15,
+                  height: 15,
+                }}
+                source={rightarrow}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: "#FAFAFA",
-    elevation: 0, // Remove shadow
-    borderBottomWidth: 0, // Remove border bottom
-  },
-  tabBarLabel: {
-    textTransform: "capitalize",
-    color: "black",
-    fontSize: 16,
-  },
-  tabBarIndicator: {
-    backgroundColor: "transparent", // Remove indicator
-  },
-  tabBarButton: {
-    flex: 1,
-    width: responsiveWidth(33), // Adjust width as needed
-    height: 40, // Adjust height as needed
-    alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 0, // Add padding to separate text from bottom border
-  },
-  tabBarButtonFocused: {
-    // borderWidth: 0.4,
-    // borderColor: '#FFC44D',
-    backgroundColor: "#FFC44D", // Add border only for the focused tab
-  },
-  tabBarLabelText: {
-    color: "black",
-  },
-  tabBarLabelFocused: {
-    // Additional styling for focused label if needed
-  },
-});
 
 export default Accepted;

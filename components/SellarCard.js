@@ -8,6 +8,7 @@ import {
 } from "react-native-responsive-dimensions";
 import { CommonImages } from "../constants/Images";
 import { TouchableOpacity } from "@gorhom/bottom-sheet";
+import { Regular } from "../constants/fonts";
 const SellarCard = () => {
   return (
     <View
@@ -23,11 +24,18 @@ const SellarCard = () => {
         flexDirection: "row",
       }}
     >
-      <Image style={{ width: 65, height: 65 }} source={CommonImages.welder} />
-      <View style={{ width: responsiveWidth(70) }}>
+      <Image style={{ width: 65, height: 65 }} source={CommonImages.plumber} />
+      <View style={{ width: responsiveWidth(70), paddingLeft: "3%" }}>
         <View style={{ flex: 1 }}>
           {/* Name */}
-          <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 5 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              marginBottom: 5,
+              fontFamily: Regular,
+            }}
+          >
             John Doe
           </Text>
 
@@ -42,7 +50,7 @@ const SellarCard = () => {
             }}
           >
             {/* Profession */}
-            <Text style={{ fontSize: 14 }}>Plumber</Text>
+            <Text style={{ fontSize: 14, fontFamily: Regular }}>Plumber</Text>
 
             {/* Line Separator */}
             <View
@@ -60,9 +68,11 @@ const SellarCard = () => {
                 style={{ width: 16, height: 16, marginRight: 5 }}
                 source={CommonImages.location}
               />
-              <Text style={{ fontSize: 12 }}>New York, USA</Text>
+              <Text style={{ fontSize: 12, fontFamily: Regular }}>
+                New York, USA
+              </Text>
               <Image
-                style={{ marginLeft: 80, width: 22, height: 22 }}
+                style={{ marginLeft: 50, width: 22, height: 22 }}
                 source={CommonImages.rightarrow}
               />
             </View>
@@ -70,7 +80,9 @@ const SellarCard = () => {
 
           {/* Active Status and Arrow Icon */}
           <View>
-            <Text style={{ fontSize: 12, marginRight: 5 }}>Active now</Text>
+            <Text style={{ fontSize: 12, marginRight: 5, fontFamily: Regular }}>
+              Active now
+            </Text>
           </View>
           <View
             style={{
