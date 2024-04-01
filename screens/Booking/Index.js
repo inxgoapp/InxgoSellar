@@ -82,7 +82,6 @@ const Index = ({ navigation }) => {
       <Complete navigation={navigation} />
     </View>
   );
-
   return (
     <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
       <Toast />
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
   },
   tabBarButton: {
     flex: 1,
-    width: responsiveWidth(3), // Adjust width as needed
+    width: responsiveWidth(23), // Adjust width as needed
     height: 40, // Adjust height as needed
     alignItems: "center",
     justifyContent: "center",

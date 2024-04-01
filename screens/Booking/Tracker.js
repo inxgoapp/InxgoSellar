@@ -11,6 +11,9 @@ import wallet from "../../style/wallet";
 import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
+import Footer from "../Footer/Index";
+import profile from "../../style/profile";
+const arrow_back = require("../../assets/arrow_back.png");
 
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -68,28 +71,15 @@ const Tracker = ({ navigation }) => {
   const progress = progressComplete ? 1 : 1 - time / 28800; // 8 hours in seconds
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
-      <Toast />
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <View style={profile.welcome}>
-          <Image style={profile.arrow_back} source={arrow_back} />
-          <Text style={profile.welcomeText}>My Jobs</Text>
-        </View>
-      </TouchableOpacity>
-      <TabView
-        navigationState={{ index: state.index, routes: state.routes }}
-        onIndexChange={setIndex}
-        renderTabBar={renderTabBar}
-        renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
-          third: ThirdRoute,
-          fourth: fourthRoute,
-        })}
-      />
-      <Footer flag={"Booking"} navigation={navigation} />
-    </View>
     <View style={styles.container}>
+      <View style={{ backgroundColor: "#FAFAFA" }}>
+        <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
+          <View style={profile.welcome}>
+            <Image style={profile.arrow_back} source={arrow_back} />
+            <Text style={profile.welcomeText}>Track Progress</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
       <View style={styles.infoContainer}>
         <Image style={wallet.image} source={image_upload} />
         <View style={wallet.LeftContainer}>
@@ -228,17 +218,18 @@ const Tracker = ({ navigation }) => {
           buttontitle={isPlaying && !isPaused ? "Pause" : "Start"}
           color="#FFC44D"
           onPress={handleStartButtonClick}
-          width={100}
-          height={40}
+          width={120}
+          height={50}
         />
         <CustomButton
           buttontitle={"End"}
           color="#FFC44D"
           onPress={handleEndButtonClick}
-          width={100}
-          height={40}
+          width={120}
+          height={50}
         />
       </View>
+      <Footer flag={"Booking"} navigation={navigation} />
     </View>
   );
 };
@@ -284,38 +275,6 @@ const styles = StyleSheet.create({
     //  width: "100%", // Ensure the buttons span the full width of the container
     marginBottom: 0, // Add space at the bottom
     //paddingHorizontal: 20, // Add horizontal padding if needed
-  },
-  tabBar: {
-    backgroundColor: "#FAFAFA",
-    elevation: 0, // Remove shadow
-    borderBottomWidth: 0, // Remove border bottom
-  },
-  tabBarLabel: {
-    textTransform: "capitalize",
-    color: "black",
-    fontSize: 16,
-  },
-  tabBarIndicator: {
-    backgroundColor: "transparent", // Remove indicator
-  },
-  tabBarButton: {
-    flex: 1,
-    width: responsiveWidth(23), // Adjust width as needed
-    height: 40, // Adjust height as needed
-    alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 0, // Add padding to separate text from bottom border
-  },
-  tabBarButtonFocused: {
-    // borderWidth: 0.4,
-    // borderColor: '#FFC44D',
-    backgroundColor: "#FFC44D", // Add border only for the focused tab
-  },
-  tabBarLabelText: {
-    color: "black",
-  },
-  tabBarLabelFocused: {
-    // Additional styling for focused label if needed
   },
 });
 

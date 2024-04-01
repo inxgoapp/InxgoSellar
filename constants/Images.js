@@ -7,4 +7,5 @@ export const CommonImages = {
   barber: require("../assets/barber.png"),
   location: require("../assets/Location.png"),
   rightarrow: require("../assets/rightarrow.png"),
+  visa: require("../assets/Visa.png"),
 };

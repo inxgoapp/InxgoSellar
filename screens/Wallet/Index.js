@@ -8,6 +8,8 @@ import wallet from "../../style/wallet";
 import Footer from "../Footer/Index";
 import profile from "../../style/profile";
 import Payment from "./Payment";
+import CustomImageModal from "../../components/CustomImageModal";
+
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
 const money = require("../../assets/icons/money.png");
@@ -40,6 +42,7 @@ const Index = ({ navigation }) => {
             <Text style={profile.welcomeText}>My Wallet</Text>
           </View>
         </TouchableOpacity>
+        <CustomImageModal />
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />
     </View>
