@@ -8,8 +8,6 @@ import wallet from "../../style/wallet";
 import Footer from "../Footer/Index";
 import profile from "../../style/profile";
 import Payment from "./Payment";
-import CustomImageModal from "../../components/CustomImageModal";
-
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
 const money = require("../../assets/icons/money.png");
@@ -36,13 +34,17 @@ const Index = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView keyboardDismissMode="on-drag" style={appStyle.body}>
-        {/* <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View style={profile.welcome}>
             <Image style={profile.arrow_back} source={arrow_back} />
             <Text style={profile.welcomeText}>My Wallet</Text>
           </View>
-        </TouchableOpacity> */}
-        <Payment />
+        </TouchableOpacity>
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.navigate("Payment")}>
+            <Text>Payment</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />
     </View>

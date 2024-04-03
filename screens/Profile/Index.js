@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from "react-native";
 import Flag from "react-native-flags";
-
+import SvgUri from "react-native-svg-uri";
 import { StatusBar } from "expo-status-bar";
 import * as ImagePicker from "expo-image-picker";
 import MyGlobleSetting from "../../Services/MyGlobleSetting";
@@ -135,12 +135,12 @@ const Index = ({ navigation }) => {
   return (
     <ScrollView keyboardDismissMode={"on-drag"}>
       <View style={appStyle.body}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <View style={profile.welcome}>
+        <View style={profile.welcome}>
+          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <Image style={profile.arrow_back} source={arrow_back} />
-            <Text style={profile.welcomeText}>Fill Your Profile</Text>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <Text style={profile.welcomeText}>Fill Your Profile</Text>
+        </View>
 
         <Image
           style={profile.image}
@@ -339,10 +339,6 @@ const Index = ({ navigation }) => {
             </View>
           </Modal>
         )}
-
-        <TouchableOpacity style={Style.appButton}>
-          <Text style={appStyle.appButtonText}>Continue</Text>
-        </TouchableOpacity>
       </View>
     </ScrollView>
   );

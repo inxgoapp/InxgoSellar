@@ -34,11 +34,14 @@ import {
   RateSupplierBSheet,
   Tracker,
   CompleteDetails,
+  Credit,
+  AddCredit,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Accepted from "../screens/Booking/Accepted";
+import EditProfile from "../screens/Profile/EditProfile";
 
 const Tab = createBottomTabNavigator();
 
@@ -97,6 +100,9 @@ const Tabs = (props) => {
       <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
       <Tab.Screen name="NewPassword" component={NewPassword} />
       <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
+      <Tab.Screen name="EditProfile" component={EditProfile} />
+      <Tab.Screen name="Credit" component={Credit} />
+      <Tab.Screen name="AddCredit" component={AddCredit} />
     </Tab.Navigator>
   );
 };

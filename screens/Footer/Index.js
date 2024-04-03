@@ -61,7 +61,7 @@ const Index = ({ navigation, flag }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={appStyle.footerDiv}
-        onPress={() => footerMenu("Wallet")}
+        onPress={() => footerMenu("Credit")}
       >
         <View style={appStyle.iconTextContainer}>
           <Image
@@ -83,7 +83,7 @@ const Index = ({ navigation, flag }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={appStyle.footerDiv}
-        onPress={() => footerMenu("Profile")}
+        onPress={() => footerMenu("EditProfile")}
       >
         <View style={appStyle.iconTextContainer}>
           <Image

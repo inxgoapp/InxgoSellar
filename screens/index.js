@@ -31,3 +31,5 @@ export { default as RateSupplierBSheet } from "../components/RateSupplierBSheet/
 export { default as Accepted } from "../screens/Booking/Accepted";
 export { default as Tracker } from "../screens/Booking/Tracker";
 export { default as CompleteDetails } from "../screens/Booking/CompleteDetails";
+export { default as AddCredit } from "../screens/Wallet/AddCredit";
+export { default as Credit } from "../screens/Wallet/Credit";
