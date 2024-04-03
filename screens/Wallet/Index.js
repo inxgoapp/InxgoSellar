@@ -36,13 +36,13 @@ const Index = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView keyboardDismissMode="on-drag" style={appStyle.body}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View style={profile.welcome}>
             <Image style={profile.arrow_back} source={arrow_back} />
             <Text style={profile.welcomeText}>My Wallet</Text>
           </View>
-        </TouchableOpacity>
-        <CustomImageModal />
+        </TouchableOpacity> */}
+        <Payment />
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />
     </View>

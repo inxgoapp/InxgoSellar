@@ -30,3 +30,4 @@ export { default as LocationBottomSheet } from "../components/LocationBottomShee
 export { default as RateSupplierBSheet } from "../components/RateSupplierBSheet/Index";
 export { default as Accepted } from "../screens/Booking/Accepted";
 export { default as Tracker } from "../screens/Booking/Tracker";
+export { default as CompleteDetails } from "../screens/Booking/CompleteDetails";

@@ -51,7 +51,7 @@ const Complete = ({ navigation }) => {
               <Text style={{ fontSize: 18 }}>$ 40</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={() => detailJob("Detail")}>
+          <TouchableOpacity onPress={() => detailJob("CompleteDetails")}>
             <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
               <Image
                 style={{ marginTop: 10, width: 15, height: 15 }}

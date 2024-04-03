@@ -8,4 +8,7 @@ export const CommonImages = {
   location: require("../assets/Location.png"),
   rightarrow: require("../assets/rightarrow.png"),
   visa: require("../assets/Visa.png"),
+  hrs: require("../assets/hrs.png"),
+  timer: require("../assets/timer.png"),
+  taskComp: require("../assets/taskComp.png"),
 };
