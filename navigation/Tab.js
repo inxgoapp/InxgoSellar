@@ -36,6 +36,7 @@ import {
   CompleteDetails,
   Credit,
   AddCredit,
+  YourCountry,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -64,7 +65,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Booking"}
+      initialRouteName={!users ? "Home" : "Country"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -103,6 +104,8 @@ const Tabs = (props) => {
       <Tab.Screen name="EditProfile" component={EditProfile} />
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
+
+      <Tab.Screen name="YourCountry" component={YourCountry} />
     </Tab.Navigator>
   );
 };

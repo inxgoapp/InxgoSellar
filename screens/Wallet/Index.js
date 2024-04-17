@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
-import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  ScrollView,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from "react-native";
 import { TextInput } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import appStyle from "../../style/login_start";
@@ -8,6 +15,7 @@ import wallet from "../../style/wallet";
 import Footer from "../Footer/Index";
 import profile from "../../style/profile";
 import Payment from "./Payment";
+import CustomImageModal from "../../components/CustomImageModal";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
 const money = require("../../assets/icons/money.png");
@@ -43,6 +51,10 @@ const Index = ({ navigation }) => {
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableOpacity onPress={() => navigation.navigate("Payment")}>
             <Text>Payment</Text>
+            <CustomImageModal />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View></View>
           </TouchableOpacity>
         </View>
       </ScrollView>

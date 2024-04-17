@@ -22,6 +22,10 @@ import apple from "../../assets/apple.png";
 import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
 import Toast from "react-native-toast-message";
+import {
+  responsiveFontSize,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openEye = require("../../assets/openeye.png");
@@ -101,11 +105,14 @@ const SignUp = ({ navigation }) => {
     >
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={appStyle.body}>
-          <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
-            <Image style={appStyle.arrowbacklogin} source={arrow_back} />
-          </TouchableOpacity>
-          <Toast />
-          <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+          <View style={{ height: responsiveHeight(20) }}>
+            <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
+              <Image style={appStyle.arrowbacklogin} source={arrow_back} />
+            </TouchableOpacity>
+            <Toast />
+            <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+          </View>
+
           <View style={styles.container}>
             <Formik
               initialValues={{
@@ -196,10 +203,6 @@ const SignUp = ({ navigation }) => {
               )}
             </Formik>
           </View>
-          <View style={appStyle.leftContainer}>
-            {/* <CheckBox /> */}
-            {/* <Text style={appStyle.rowLabelText}>Remember Me</Text> */}
-          </View>
 
           {/* {!state.flag ? (
         <TouchableOpacity
@@ -229,7 +232,7 @@ const SignUp = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-          <View style={appStyle.cardContainer}>
+          <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
             <Text
               onPress={() => navigation.navigate("Index")}
@@ -257,7 +260,9 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 1,
     backgroundColor: "#ecf0f1",
-    padding: 8,
+    padding: 12,
+    backgroundColor: "green",
+    height: responsiveHeight(50),
   },
   title: {
     margin: 24,
@@ -267,9 +272,10 @@ const styles = StyleSheet.create({
   },
   error: {
     margin: 2,
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
     color: "red",
     fontWeight: "bold",
+    bottom: 8,
   },
   input: {
     height: 50,

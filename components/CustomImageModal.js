@@ -1,17 +1,11 @@
-import React, { useState } from "react";
-import {
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import CustomButton from "./CustomButton";
+import React from "react";
+import { Modal, StyleSheet, View, Dimensions, Text } from "react-native";
+import LottieView from "lottie-react-native";
+import Animated from "react-native-reanimated";
 import { responsiveFontSize } from "react-native-responsive-dimensions";
-import { CommonImages } from "../constants/Images";
+import CustomButton from "./CustomButton";
+
+const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
 const CustomImageModal = ({
   title,
@@ -42,15 +36,22 @@ const CustomImageModal = ({
           ]}
         >
           <View style={[styles.modalView, { width: windowWidth * 0.8 }]}>
-            <Image
-              style={{ width: 210, height: 210 }}
-              source={CommonImages.visa}
+            <AnimatedLottieView
+              source={require("../assets/animations/inxgoAnimation.json")}
+              autoPlay
+              loop={false}
+              style={{
+                width: "100%",
+                height: 200,
+                backgroundColor: "#FFFFFF",
+                bottom: 30,
+                position: "absolute",
+              }}
             />
             <Text style={styles.modalText}>Visa card successful!</Text>
             <Text style={styles.modalTextSub}>
               You have successfully added Visa card credits.
             </Text>
-
             <View style={styles.buttonsContainer}>
               <CustomButton
                 buttontitle="Okay"
@@ -59,7 +60,7 @@ const CustomImageModal = ({
                 height={45}
                 onPress={onPressYes}
               />
-              <View style={{ width: 10 }}></View>
+              <View style={{ width: 10 }} />
             </View>
           </View>
         </View>
@@ -70,11 +71,12 @@ const CustomImageModal = ({
 
 const styles = StyleSheet.create({
   centeredView: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   modalView: {
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "red",
     borderRadius: 20,
     paddingVertical: 25,
     alignItems: "center",
@@ -87,30 +89,11 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  buttonsContainer: {
-    flexDirection: "row",
-    alignSelf: "auto",
-    bottom: 50,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
   modalText: {
     paddingHorizontal: 23,
-    bottom: 10,
+    bottom: 40,
     fontWeight: "600",
     textAlign: "center",
-
     fontSize: responsiveFontSize(2.8),
   },
   modalTextSub: {

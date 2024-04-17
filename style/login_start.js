@@ -8,9 +8,9 @@ import {
 const appStyle = StyleSheet.create({
   body: {
     backgroundColor: "#FAFAFA",
-    height: responsiveHeight(100),
     width: responsiveWidth(100),
     flex: 1,
+    //backgroundColor: "red",
   },
   bgRoundedWhite: {
     width: "90%",
@@ -42,17 +42,26 @@ const appStyle = StyleSheet.create({
   cardContainer: {
     width: responsiveWidth(90),
     height: responsiveHeight(10),
-    // backgroundColor:'orange',
+    // backgroundColor: "orange",
     // flexDirection: 'row',
     // marginTop: 10,
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
   },
+  cardContainer2: {
+    width: responsiveWidth(90),
+    height: responsiveHeight(10),
+    backgroundColor: "orange",
+    // flexDirection: 'row',
+    // marginTop: 10,
+    alignSelf: "center",
+    alignItems: "center",
+  },
   iContainer: {
     width: responsiveWidth(100),
     height: responsiveHeight(10),
-    //backgroundColor:'green',
+    backgroundColor: "blue",
     flexDirection: "row",
     // marginTop: 10,
     alignSelf: "center",

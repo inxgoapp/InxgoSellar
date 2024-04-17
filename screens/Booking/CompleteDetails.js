@@ -384,7 +384,7 @@ const CompleteDetails = ({ navigation }) => {
             </View>
             <TouchableOpacity
               style={{
-                marginTop: 20,
+                marginTop: 50,
                 height: 50,
                 width: 200,
                 backgroundColor: "orange",

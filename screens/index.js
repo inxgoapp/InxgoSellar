@@ -33,3 +33,5 @@ export { default as Tracker } from "../screens/Booking/Tracker";
 export { default as CompleteDetails } from "../screens/Booking/CompleteDetails";
 export { default as AddCredit } from "../screens/Wallet/AddCredit";
 export { default as Credit } from "../screens/Wallet/Credit";
+
+export { default as YourCountry } from "../screens/Settings/YourCountry";
