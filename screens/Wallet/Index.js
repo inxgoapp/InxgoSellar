@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
-import {
-  ScrollView,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TouchableNativeFeedback,
-} from "react-native";
+import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import appStyle from "../../style/login_start";
@@ -51,11 +44,8 @@ const Index = ({ navigation }) => {
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableOpacity onPress={() => navigation.navigate("Payment")}>
             <Text>Payment</Text>
-            <CustomImageModal />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <View></View>
-          </TouchableOpacity>
+          <CustomImageModal />
         </View>
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />

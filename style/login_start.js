@@ -4,13 +4,13 @@ import {
   responsiveWidth,
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
+import { Regular } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   body: {
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "#fafafa",
+    height: responsiveHeight(100),
     width: responsiveWidth(100),
-    flex: 1,
-    //backgroundColor: "red",
   },
   bgRoundedWhite: {
     width: "90%",
@@ -40,28 +40,30 @@ const appStyle = StyleSheet.create({
     alignItems: "center",
   },
   cardContainer: {
-    width: responsiveWidth(90),
-    height: responsiveHeight(10),
-    // backgroundColor: "orange",
+    width: responsiveWidth(100),
+    height: responsiveHeight(5),
+    //backgroundColor: "orange",
     // flexDirection: 'row',
     // marginTop: 10,
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
   },
   cardContainer2: {
-    width: responsiveWidth(90),
-    height: responsiveHeight(10),
-    backgroundColor: "orange",
-    // flexDirection: 'row',
+    width: responsiveWidth(100),
+    height: responsiveHeight(5),
+    // backgroundColor: "red",
+    flexDirection: "row",
     // marginTop: 10,
-    alignSelf: "center",
+    justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
   },
   iContainer: {
     width: responsiveWidth(100),
-    height: responsiveHeight(10),
-    backgroundColor: "blue",
+    height: responsiveHeight(7),
+    // backgroundColor: "green",
     flexDirection: "row",
     // marginTop: 10,
     alignSelf: "center",
@@ -228,6 +230,7 @@ const appStyle = StyleSheet.create({
   google: {
     width: 34,
     height: 32,
+    resizeMode: "contain",
   },
 
   signIn: {
@@ -312,18 +315,16 @@ const appStyle = StyleSheet.create({
   },
   signUp: {
     fontWeight: "600",
-    color: "#FFC44D",
+    color: "black",
     fontSize: 13,
-    fontFamily: "Inter",
-    top: 20,
-    right: 30,
+    fontFamily: Regular,
   },
   signUpText: {
     color: "#FFC44D",
     fontWeight: "bold",
     fontSize: 16,
-    fontFamily: "Inter",
-    left: 60,
+    fontFamily: Regular,
+    right: responsiveWidth(30),
   },
 });
 export default appStyle;

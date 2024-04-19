@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
-import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  ScrollView,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import { TextInput } from "react-native-paper";
 import appStyle from "../../style/login_start";
 import profile from "../../style/profile";
@@ -14,6 +21,10 @@ import countryArray from "./countryArray";
 import search from "../../assets/svg/search.svg";
 import my_location from "../../assets/svg/my_location.svg";
 import arrow_back from "../../assets/arrow_back.png";
+import {
+  responsiveWidth,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 
 const Country = ({ navigation }) => {
   const [flag, setFlag] = useState(true);
@@ -66,7 +77,7 @@ const Country = ({ navigation }) => {
             <Text style={profile.welcomeText}>Your Country</Text>
           </View>
         </TouchableOpacity>
-        <View style={homeStyle.cardContainer}>
+        <View style={styles.cardContainer}>
           <View style={homeStyle.searchSection}>
             {/* <SvgUri
               style={{ left: 30, zIndex: 100000 }}
@@ -104,7 +115,7 @@ const Country = ({ navigation }) => {
         </View>
         {filteredData &&
           Object.keys(filteredData).map((val, i) => (
-            <View style={appStyle.cardContainer} key={i}>
+            <View style={styles.cardContainer} key={i}>
               <Flag
                 style={{
                   position: "absolute",
@@ -140,4 +151,17 @@ const Country = ({ navigation }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  cardContainer: {
+    width: responsiveWidth(100),
+    height: responsiveHeight(9),
+    // backgroundColor: "orange",
+    // flexDirection: 'row',
+    padding: 20,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+});
 export default Country;

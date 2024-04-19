@@ -37,6 +37,7 @@ import {
   Credit,
   AddCredit,
   YourCountry,
+  SeeAll,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -65,7 +66,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Country"}
+      initialRouteName={!users ? "Home" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
