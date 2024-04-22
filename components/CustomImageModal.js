@@ -9,12 +9,12 @@ const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
 const CustomImageModal = ({
   title,
-  buttontitle,
-  buttontitle2,
+  subtitle,
   modalVisible,
   setModalVisible,
-  onPressNO,
-  onPressYes,
+  animationlogo,
+
+  onPressButton,
 }) => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
@@ -31,41 +31,33 @@ const CustomImageModal = ({
       >
         <View
           style={[
-            styles.centeredView,
+            styles.modelBackground,
             { width: windowWidth, height: windowHeight },
           ]}
         >
           <View style={[styles.modalView, { width: windowWidth * 0.7 }]}>
             <AnimatedLottieView
-              source={require("../assets/animations/realcheck.json")}
+              source={animationlogo}
               autoPlay
               loop={false}
               style={{
                 width: "100%",
-                height: 170,
+                height: 150,
                 // bottom: 30,
                 //s position: "relative",
               }}
             />
-            {/* <CustomButton
-              buttontitle="Okay"
-              color="#FFC44D"
-              width={windowWidth * 0.7}
-              height={40}
-              onPress={onPressYes}
-            /> */}
-
-            <Text style={styles.modalText}>Visa card successful!</Text>
-            <Text style={styles.modalTextSub}>
-              You have successfully added Visa card credits.
-            </Text>
-            <CustomModelBtn
-              buttontitle="Okay"
-              color="#FFC44D"
-              width={windowWidth * 0.5}
-              height={40}
-              onPress={onPressYes}
-            />
+            <View style={{ gap: 15 }}>
+              <Text style={styles.modalText}>{title}</Text>
+              <Text style={styles.modalTextSub}>{subtitle}</Text>
+              <CustomModelBtn
+                buttontitle="Okay"
+                color="#FFC44D"
+                width={windowWidth * 0.5}
+                height={40}
+                onPress={onPressButton}
+              />
+            </View>
           </View>
         </View>
       </Modal>
@@ -75,24 +67,30 @@ const CustomImageModal = ({
 
 const styles = StyleSheet.create({
   centeredView: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  modelBackground: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black background
+    opacity: 0.99,
+  },
   modalView: {
-    // backgroundColor: "black",
+    backgroundColor: "#fafafa", // Semi-transparent black background
     borderRadius: 15,
 
     paddingVertical: 25,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: "grey",
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.2,
     shadowRadius: 2,
-    elevation: 1,
+    elevation: 8,
 
     gap: 5,
   },
@@ -101,14 +99,14 @@ const styles = StyleSheet.create({
     //bottom: 40,
     fontWeight: "600",
     textAlign: "center",
-    fontSize: responsiveFontSize(2.8),
+    fontSize: responsiveFontSize(2.9),
   },
   modalTextSub: {
     paddingHorizontal: 23,
     //bottom: 10,
     fontWeight: "400",
     textAlign: "center",
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
 });
 
