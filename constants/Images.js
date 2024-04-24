@@ -12,4 +12,5 @@ export const CommonImages = {
   timer: require("../assets/timer.png"),
   taskComp: require("../assets/taskComp.png"),
   creditcardbg: require("../assets/creditcardbg.png"),
+  Mylocationpng: require("../assets/locationpng.png"),
 };

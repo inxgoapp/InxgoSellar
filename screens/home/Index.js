@@ -251,7 +251,7 @@ const Index = ({ navigation }) => {
                   fontWeight: "500",
                 }}
               >
-                Become our Partner and get service requests near you{" "}
+                Become our Partner and get service requests near you
               </Text>
               <Text style={appStyle.download}>Download Now</Text>
             </View>

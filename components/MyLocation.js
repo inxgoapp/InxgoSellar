@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, PermissionsAndroid, Button, Linking } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  PermissionsAndroid,
+  Button,
+  Linking,
+} from "react-native";
 import Geolocation from "@react-native-community/geolocation";
+import { CommonImages } from "../constants/Images";
+import { Bold } from "../constants/fonts";
+import { responsiveWidth } from "react-native-responsive-dimensions";
+
+const YOUR_API_KEY = "AIzaSyBumeTNvlZPonN8-rnzCqt1MHyLjSNHMgA";
 
 const MyLocation = () => {
   const [location, setLocation] = useState(null);
@@ -26,12 +38,14 @@ const MyLocation = () => {
             async (position) => {
               const { latitude, longitude } = position.coords;
               setLocation({ latitude, longitude });
-              // Fetch the address using the mock geocoding service
-              const address = await fetchAddressFromGeocodingService(
-                latitude,
-                longitude
-              );
-              setAddress(address);
+              // Call getAddressFromCoordinates with the correct parameters
+              getAddressFromCoordinates({ latitude, longitude })
+                .then((address) => {
+                  setAddress(address);
+                })
+                .catch((error) => {
+                  console.error("Error fetching address:", error);
+                });
             },
             (error) => {
               setErrorMessage(error.message);
@@ -49,7 +63,7 @@ const MyLocation = () => {
     getLocation();
 
     return () => {
-      Geolocation.stopObserving();
+      Geolocation.clearWatch();
     };
   }, []);
 
@@ -57,13 +71,30 @@ const MyLocation = () => {
     Linking.openSettings();
   };
 
+  function getAddressFromCoordinates({ latitude, longitude }) {
+    return new Promise((resolve, reject) => {
+      fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${YOUR_API_KEY}`
+      )
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log("Response", responseJson);
+
+          if (responseJson.status === "OK") {
+            resolve(responseJson?.results?.[0]?.formatted_address);
+          } else {
+            reject("Address not found");
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
   const formatLocation = () => {
     if (address) {
       return address;
-    } else if (location) {
-      return `Latitude: ${location.latitude.toFixed(
-        2
-      )}, Longitude: ${location.longitude.toFixed(2)}`;
     } else {
       return "Fetching location...";
     }
@@ -77,22 +108,30 @@ const MyLocation = () => {
           <Button title="Open Settings" onPress={openAppSettings} />
         </>
       ) : (
-        <Text>{formatLocation()}</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            width: responsiveWidth(70),
+            // backgroundColor: "red",
+          }}
+        >
+          <Image
+            style={{
+              width: 35,
+              height: 30,
+              resizeMode: "contain",
+            }}
+            source={CommonImages.Mylocationpng}
+          />
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 12, fontFamily: Bold }}>
+              {formatLocation()}
+            </Text>
+          </View>
+        </View>
       )}
     </View>
   );
-};
-
-// Placeholder for the geocoding service function
-const fetchAddressFromGeocodingService = (latitude, longitude) => {
-  return new Promise((resolve) => {
-    // Simulate a delay to mimic an actual API call
-    setTimeout(() => {
-      // For demonstration purposes, we'll return a simple formatted address
-      // In a real application, this would be replaced with an actual API call
-      resolve(`${latitude.toFixed(2)}, ${longitude.toFixed(2)}`);
-    }, 1000);
-  });
 };
 
 export default MyLocation;
