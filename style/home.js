@@ -63,12 +63,12 @@ const homeStyles = StyleSheet.create({
     fontWeight: "300",
   },
   image: {
-    width: 20,
-    height: 20,
+    width: 50,
+    height: 40,
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    resizeMode: "stretch", // or 'stretch'
+    resizeMode: "contain", // or 'stretch'
   },
   inputSearch: {
     width: "80%",

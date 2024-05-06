@@ -92,12 +92,13 @@ const EditProfile = ({ navigation }) => {
           <Text style={styles.txt}>Settings</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ bottom: 25 }}>
+      <View style={{ height: responsiveHeight(7) }}></View>
+      <View style={{ height: responsiveHeight(13) }}>
         <CustomButton
           title={"Logout"}
           color="#FFC44D"
           width={responsiveWidth(40)}
-          // onPress={handleEndButtonClick}
+          onPress={() => navigation.navigate("Login")}
         />
       </View>
     </View>

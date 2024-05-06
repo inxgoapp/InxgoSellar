@@ -19,13 +19,15 @@ import SvgUri from "react-native-svg-uri";
 import { Regular, Bold, Medium } from "../../constants/fonts";
 import LocationComponent from "../../components/MyLocation";
 //const image_url = MyGlobleSetting.state.imageUrl;
-const bell = require("../../assets/icons/bell.png");
+const bell = require("../../assets/go.png");
 const setting = require("../../assets/icons/setting.png");
 const plumber = require("../../assets/icons/plumber.png");
 const labour = require("../../assets/icons/labour.png");
 const barber = require("../../assets/icons/barber.png");
 const promtion = require("../../assets/icons/promtion.png");
 const promotion1 = require("../../assets/icons/promotion1.png");
+const search = require("../../assets/searching.png");
+
 import { CommonImages } from "../../constants/Images";
 import SellarCard from "../../components/SellarCard";
 const Index = ({ navigation }) => {
@@ -81,7 +83,7 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: 10, backgroundColor: "#fff" }}>
+    <View style={{ flex: 1, paddingTop: 30, backgroundColor: "#fff" }}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <ScrollView keyboardDismissMode={"on-drag"}>
           <View style={appStyle.cardContainer}>
@@ -104,7 +106,7 @@ const Index = ({ navigation }) => {
                 style={appStyle.input}
                 placeholder="Search here"
               />
-              <Image style={appStyle.searchIcon} source={setting} />
+              <Image style={appStyle.searchIcon} source={search} />
             </View>
           </View>
           <View style={appStyle.cardContainer}>
@@ -113,7 +115,7 @@ const Index = ({ navigation }) => {
             </View>
 
             <View style={appStyle.rightContainerSmall}>
-              <TouchableOpacity onPress={HandleViewAll}>
+              <TouchableOpacity onPress={()=>navigation.navigate('ViewAll')}>
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
             </View>

@@ -44,6 +44,7 @@ import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Accepted from "../screens/Booking/Accepted";
 import EditProfile from "../screens/Profile/EditProfile";
+import ViewAll from "../screens/home/ViewAll";
 
 const Tab = createBottomTabNavigator();
 
@@ -92,6 +93,7 @@ const Tabs = (props) => {
       <Tab.Screen name="RateSupplierBSheet" component={RateSupplierBSheet} />
       <Tab.Screen name="Accepted" component={Accepted} />
       <Tab.Screen name="Tracker" component={Tracker} />
+      <Tab.Screen name="ViewAll" component={ViewAll} />
 
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />

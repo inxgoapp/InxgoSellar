@@ -5,7 +5,7 @@ export { default as StartLogin } from "./Login/Start";
 export { default as SignUp } from "./Login/SignUp";
 export { default as Forget } from "./Login/Forget";
 export { default as Profile } from "./Profile/Index";
-export { default as Wallet } from "./Wallet/Index";
+export { default as Wallet } from "../screens/Wallet/Credit"
 export { default as Payment } from "./Wallet/Payment";
 export { default as PaymentAdd } from "./Wallet/PaymentAdd";
 export { default as Booking } from "./Booking/Index";

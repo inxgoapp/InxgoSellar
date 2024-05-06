@@ -11,6 +11,7 @@ const appStyle = StyleSheet.create({
     backgroundColor: "#fafafa",
     height: responsiveHeight(100),
     width: responsiveWidth(100),
+
   },
   bgRoundedWhite: {
     width: "90%",
@@ -42,7 +43,7 @@ const appStyle = StyleSheet.create({
   cardContainer: {
     width: responsiveWidth(100),
     height: responsiveHeight(5),
-    //backgroundColor: "orange",
+     //backgroundColor: "orange",
     // flexDirection: 'row',
     // marginTop: 10,
     alignSelf: "center",
@@ -201,6 +202,7 @@ const appStyle = StyleSheet.create({
     alignItems: "center",
     fontWeight: "600",
     marginBottom: 20,
+    fontFamily:Regular
   },
   logo: {
     marginTop: 50,
@@ -230,7 +232,7 @@ const appStyle = StyleSheet.create({
   google: {
     width: 34,
     height: 32,
-    resizeMode: "contain",
+    resizeMode:'contain'
   },
 
   signIn: {
@@ -297,7 +299,8 @@ const appStyle = StyleSheet.create({
   ForgetTxt: {
     fontSize: 16,
     paddingHorizontal: 10,
-    left: 15,
+    marginLeft:15,
+    fontFamily:Regular
   },
   line: {
     height: 1,

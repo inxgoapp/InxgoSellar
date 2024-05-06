@@ -80,7 +80,7 @@ const SellarCard = () => {
 
           {/* Active Status and Arrow Icon */}
           <View>
-            <Text style={{ fontSize: 12, marginRight: 5, fontFamily: Regular }}>
+            <Text style={{ fontSize: 12, marginRight: 5, fontFamily: Regular,color:'#FFC44D'}}>
               Active now
             </Text>
           </View>
