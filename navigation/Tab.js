@@ -45,6 +45,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Accepted from "../screens/Booking/Accepted";
 import EditProfile from "../screens/Profile/EditProfile";
 import ViewAll from "../screens/home/ViewAll";
+import Summary from "../screens/Profile/Summary";
+import TaskCharges from "../screens/Profile/TaskCharges";
 
 const Tab = createBottomTabNavigator();
 
@@ -67,12 +69,13 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "Home" : "TaskCharges"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="TaskCharges" component={TaskCharges} />
 
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />
@@ -94,6 +97,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Accepted" component={Accepted} />
       <Tab.Screen name="Tracker" component={Tracker} />
       <Tab.Screen name="ViewAll" component={ViewAll} />
+      <Tab.Screen name="Summary" component={Summary} />
 
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />

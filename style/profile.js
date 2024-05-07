@@ -3,7 +3,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
-import { Regular } from "../constants/fonts";
+import { Bold, Regular } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   appButtonContainer: {
@@ -53,7 +53,7 @@ const appStyle = StyleSheet.create({
     fontSize: 20,
     // marginBottom:20,
     marginLeft: 20,
-    fontFamily:Regular
+    fontFamily:Bold
     
   },
   image: {
