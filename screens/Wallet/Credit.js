@@ -14,6 +14,8 @@ import customImage from '../../assets/Frame.png';
 import customMoneyIcon from '../../assets/Money.png';
 import { moderateScale } from "react-native-size-matters";
 import { ScrollView } from "react-native-gesture-handler";
+import { ForeignObject } from "react-native-svg";
+import Footer from "../Footer/Index";
 
 // Create a component
 const Credit = ({navigation}) => {
@@ -159,7 +161,7 @@ const Credit = ({navigation}) => {
         </View>
         <View style={{ paddingHorizontal: 20, flexDirection: "row",height:responsiveHeight(8),justifyContent:'space-between' ,width:responsiveWidth(90)}}>
           <Text style={{ fontSize: 32, fontWeight: "600",fontFamily:Bold,}}>$ 243.45</Text>
-          <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("AddCredit")}>
+          <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Payment")}>
             <Text style={{fontFamily:Regular}}>Add Credit</Text>
           </TouchableOpacity>
         </View>
@@ -195,6 +197,8 @@ const Credit = ({navigation}) => {
           />
         )}
       />
+             <Footer flag={"Wallet"} navigation={navigation} />
+
     </View>
  );
 };

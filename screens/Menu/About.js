@@ -18,107 +18,218 @@ import profile from "../../style/profile";
 import menu from "../../style/menu";
 import Footer from "../Footer/Index";
 import wallet from "../../style/wallet";
-import ApiCall from "../../Services/ApiCall";
-import SvgUri from "react-native-svg-uri";
+
 import { NavigationContainer } from "@react-navigation/native";
-import SelectDropdown from "react-native-select-dropdown";
-import Toast from "react-native-toast-message";
-import MyGlobleSetting from "../../Services/MyGlobleSetting";
+import { Bold, Regular } from "../../constants/fonts";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
+
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
-const rightarrow = require("../../assets/rightarrow.png");
-import ProfileSvg from "../../assets/svg/profile.svg";
-import dangercircle from "../../assets/svg/dangercircle.svg";
-import languageSvg from "../../assets/svg/languageSvg.svg";
-import location from "../../assets/svg/location.svg";
-import lock from "../../assets/svg/lock.svg";
-import logout from "../../assets/svg/logout.svg";
-import notification from "../../assets/svg/notification.svg";
-import shielddone from "../../assets/svg/shielddone.svg";
-import walletSvg from "../../assets/svg/wallet.svg";
 
 const Index = ({ navigation }) => {
-  const [state, setState] = useState({
-    flag: false,
-    image: null,
-  });
-
   useEffect(() => {
     console.log(navigation);
   }, []);
 
-  const openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
-    }
-    let pickerResult = await ImagePicker.launchImageLibraryAsync({
-      quality: 1,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    });
-    if (pickerResult.cancelled === true) return;
-    setState({
-      ...state,
-      image: pickerResult.assets[0].uri,
-    });
-    console.log(pickerResult.cancelled);
-  };
-
-  const Logout = () => {
-    // Your logout logic here
-  };
-
   return (
-    <View
-      keyboardDismissMode={"on-drag"}
-      style={{ height: "100%", backgroundColor: "white" }}
-    >
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <View style={profile.welcome}>
-            <Image style={profile.arrow_back} source={arrow_back} />
-            <Text style={profile.welcomeText}>Profile</Text>
+    <View style={{ height: "100%", backgroundColor: "#fafafa", flex: 1 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View>
+          <View style={styles.welcome}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("EditProfile")}
+            >
+              <Image style={profile.arrow_back} source={arrow_back} />
+            </TouchableOpacity>
+
+            <Text style={profile.welcomeText}>About Us</Text>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image
-            style={profile.image}
-            source={state.image ? { uri: state.image } : image_upload}
-          />
-        </TouchableOpacity>
-        <Text style={[menu.profile, menu.profileFont1]}>Jane Doe</Text>
-        <Text style={[menu.profile, menu.profileFont2]}>+92 334 1234567</Text>
-        <View style={menu.line} />
-
-        {/* Remaining JSX code */}
-
-        <TouchableOpacity onPress={Logout}>
           <View
             style={{
-              flexDirection: "row",
-              width: "100%",
-              marginTop: 20,
-              zIndex: 1111111111111,
-              marginBottom: 50,
+              justifyContent: "center",
+              alignItems: "center",
+ 
+              height: responsiveHeight(15),
             }}
           >
-            <SvgUri
-              style={{ marginLeft: "5%" }}
-              source={{ uri: MyGlobleSetting.state.svgUrl + "logout.svg" }}
-            />
-            <View style={wallet.LeftContainer}>
-              <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontSize: 16, color: "#EB001B" }}>Logout</Text>
-              </View>
-            </View>
+            <Image source={require("../../assets/logo.png")} />
           </View>
-        </TouchableOpacity>
-      </View>
+          <View style={{height:responsiveHeight(25),justifyContent:'center'
+}}>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Welcome to Inxgo! We're here to revolutionize the way you access
+              services. Join us as your trusted destination that seamlessly
+              bridges the gap between service providers and clients. With our
+              user-friendly app, accessing services in over 50 different areas
+              is simple and convenient. It is an ultimate platform, where you
+              can find everything you need. Our mission is: to simplify the
+              process of finding and delivering services, ensuring convenience
+              for everyone involved.
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(5),justifyContent:'center'}}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily:Bold,
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+               What We Offer? .{"\n"}
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(25),justifyContent:'center'}}>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} Explore over 50 different skills on our platform,{"\n"}
+            ensuring you find the perfect provider for your needs.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} Our app is designed for both service providers and
+              clients. It's simple to use, so you can quickly find what you
+              need.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} We're committed to upholding the highest integrity,
+              transparency, and customer satisfaction standards in everything we
+              do.
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(5),justifyContent:'center'}}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: Bold,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Why Choose Us?
+              {"\n"}
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(20)}}>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              At Inxgo, we're more than just a service platform—a community
+              dedicated to excellence and innovation. We prioritize your needs
+              above all else, ensuring that every interaction with our platform
+              is personalized to meet your requirements. We aim to make your
+              experience with us as easy as possible, from finding the right
+              service provider to completing your transaction.
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(5)}}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: Bold,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Join Us Today!
+              {"\n"}
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(8)}}>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+               Ready to experience a new way of accessing and delivering
+              services? Join us on our journey to redefine service provision:{"\n"}
+            </Text>
+          </View>
+          <View style={{height:responsiveHeight(15),}}>
+          
+  <Text style={styles.description}>
+    <Text style={styles.bold}>For Service Providers:</Text> Showcase your skills and connect with clients needing your expertise. With over 50 different areas to explore, there are plenty of opportunities to thrive on our platform.
+  </Text>
+  <Text style={styles.description}>
+    <Text style={styles.bold}>For Clients:</Text> Showcase your skills and connect with clients needing your expertise. With over 50 different areas to explore, there are plenty of opportunities to thrive on our platform.
+  </Text>
+  
+</View>
+          <View style ={{height:responsiveHeight(15)}}>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 25,
+                paddingHorizontal: 5,
+              }}
+            >
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
+
       <Footer flag={"Profile"} navigation={navigation} />
     </View>
   );
 };
 
 export default Index;
+const styles = StyleSheet.create({
+  bulletPoint: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontSize: 13,
+    fontFamily: Regular,
+    width: responsiveWidth(90),
+    marginLeft: 20,
+    paddingHorizontal: 10,
+  },
+  title: {
+    fontSize: 16,
+    fontFamily: 'Bold', // Assuming 'Bold' is the name of your bold font
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 13,
+    fontFamily: 'Regular', // Assuming 'Regular' is the name of your regular font
+    width: responsiveWidth(90),
+    marginLeft: 20,
+    paddingHorizontal: 10,
+  },
+  bold: {
+    fontWeight: '900',
+  },
+  welcome: {
+    //marginTop:50,
+    fontSize: 20,
+    //marginLeft:20,
+    flexDirection: "row",
+    // alignSelf: "center",
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    height: responsiveHeight(4),
+  },
+});

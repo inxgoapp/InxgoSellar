@@ -18,6 +18,7 @@ const EditProfile = ({ navigation }) => {
           justifyContent: "space-between",
           marginRight: 20,
           paddingLeft: 10,
+height:responsiveHeight(10)
         }}
       >
         <Image source={require("../../assets/FrameJ.png")} />
@@ -25,11 +26,12 @@ const EditProfile = ({ navigation }) => {
           <Image source={require("../../assets/Close.png")} />
         </TouchableOpacity>
       </View>
-      <View style={styles.viewstyle}>
+      <View style={styles.viewstyle1}>
         <Text style={{ fontSize: 28, fontFamily: Bold, fontWeight: "700" }}>
           Welcome Jane Doe!
         </Text>
       </View>
+      <View style={{height:responsiveHeight(65)}}>
       <View style={styles.viewstyle}>
         <Image source={require("../../assets/User.png")} />
         <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
@@ -38,7 +40,7 @@ const EditProfile = ({ navigation }) => {
       </View>
       <View style={styles.viewstyle}>
         <Image source={require("../../assets/WalletP.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Wallet")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Credit")}>
           <Text style={styles.txt}>Wallet</Text>
         </TouchableOpacity>
       </View>
@@ -78,7 +80,7 @@ const EditProfile = ({ navigation }) => {
       </View>
       <View style={styles.viewstyle}>
         <Image source={require("../../assets/Help.png")} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Faq")}>
           <Text style={styles.txt}>FAQS</Text>
         </TouchableOpacity>
       </View>
@@ -92,8 +94,9 @@ const EditProfile = ({ navigation }) => {
           <Text style={styles.txt}>Settings</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ height: responsiveHeight(7) }}></View>
-      <View style={{ height: responsiveHeight(13) }}>
+      </View>
+      {/* <View style={{ height: responsiveHeight(7) }}></View> */}
+      <View style={{ height: responsiveHeight(15),justifyContent:'center' }}>
         <CustomButton
           title={"Logout"}
           color="#FFC44D"
@@ -122,7 +125,17 @@ const styles = StyleSheet.create({
   viewstyle: {
     flexDirection: "row",
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop:25,
+ //   backgroundColor:'green'
+ 
+  },
+  viewstyle1: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    // marginTop: 30,
+    
+    alignItems:'center',
+    height:responsiveHeight(10)
   },
 });
 

@@ -13,4 +13,6 @@ export const CommonImages = {
   taskComp: require("../assets/taskComp.png"),
   creditcardbg: require("../assets/creditcardbg.png"),
   Mylocationpng: require("../assets/locationpng.png"),
+  arrow: require("../assets/arrow_back.png"),
+
 };

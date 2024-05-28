@@ -10,6 +10,7 @@ import applepay from "../../assets/Apple pay.png";
 import visa from "../../assets/Visa.png";
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 import CustomButton from "../../components/CustomButton";
+import { CommonImages } from "../../constants/Images";
 
 const Payment = ({ navigation }) => {
  const [activePaymentMethod, setActivePaymentMethod] = useState(null);
@@ -50,12 +51,12 @@ const Payment = ({ navigation }) => {
  return (
     
       <View style={appStyle.body}>
-        <TouchableOpacity onPress={() => navigation.navigate("Wallet")}>
           <View style={profile.welcome}>
-            <Image style={profile.arrow_back} source={arrow_back} />
-            <Text style={profile.welcomeText}>Payment Method</Text>
-          </View>
+        <TouchableOpacity onPress={()=>navigation.navigate('Credit')}>
+          <Image style={profile.arrow_back} source={CommonImages.arrow} />
         </TouchableOpacity>
+        <Text style={profile.welcomeText}>Payment Methods</Text>
+      </View>
         <View style={{height:responsiveHeight(5)}}>
         <Text style={appStyle.welcome}>
           Select the payment method you want to use.
@@ -137,7 +138,7 @@ const Payment = ({ navigation }) => {
        <CustomButton 
           title={"Continue"}
           color="#FFC44D"
-          onPress={() => navigation.navigate("PaymentAdd")}
+          onPress={() => navigation.navigate("Pin")}
           width={responsiveWidth(85)}
         />
        </View>

@@ -47,6 +47,8 @@ import EditProfile from "../screens/Profile/EditProfile";
 import ViewAll from "../screens/home/ViewAll";
 import Summary from "../screens/Profile/Summary";
 import TaskCharges from "../screens/Profile/TaskCharges";
+import Pin from "../screens/Wallet/Pin";
+import Faq from "../screens/Menu/Faq";
 
 const Tab = createBottomTabNavigator();
 
@@ -69,13 +71,15 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "TaskCharges"}
+      initialRouteName={!users ? "Home" : "Home"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="TaskCharges" component={TaskCharges} />
+      <Tab.Screen name="Pin" component={Pin} />
+      <Tab.Screen name="Faq" component={Faq} />
 
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />
@@ -111,6 +115,8 @@ const Tabs = (props) => {
       <Tab.Screen name="EditProfile" component={EditProfile} />
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
+      <Tab.Screen name="SeeAll" component={SeeAll} />
+
 
       <Tab.Screen name="YourCountry" component={YourCountry} />
     </Tab.Navigator>

@@ -362,7 +362,7 @@ const Detail = ({ navigation }) => {
               {
                 position: "absolute",
                 zIndex: 1,
-                bottom: 20,
+                bottom: 40,
                 alignSelf: "center",
               },
             ]}

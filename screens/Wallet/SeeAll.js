@@ -119,7 +119,7 @@ const SeeAll = ({navigation}) => {
     return (
        <View style={styles.container}>
          <View style={profile.welcome}>
-           <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+           <TouchableOpacity onPress={()=>navigation.navigate('Credit')}>
              <Image style={profile.arrow_back} source={CommonImages.arrow} />
            </TouchableOpacity>
            <Text style={profile.welcomeText}>Transaction History</Text>

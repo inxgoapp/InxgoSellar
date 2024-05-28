@@ -1,10 +1,12 @@
 
 import { StyleSheet } from "react-native";
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const appStyle =StyleSheet.create({
   body:
   {
     backgroundColor:'white',
+    flex:1,
   },
   inputPayment: {
         width: "100%",
@@ -19,9 +21,9 @@ const appStyle =StyleSheet.create({
       },
       logo:
       {
-        marginTop:20,
-        width: 150, 
-        height: 120,
+        //marginTop:20,
+        width:responsiveWidth(50) , 
+        height:responsiveHeight(20),
         alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
@@ -42,7 +44,7 @@ const appStyle =StyleSheet.create({
       {
         backgroundColor:'#FFF5E1CC',
         height:30,
-        width:150,
+        width:responsiveWidth(60),
         fontSize:16,
         borderRadius:16,
         textAlign: 'center',
@@ -53,11 +55,12 @@ const appStyle =StyleSheet.create({
         fontSize:14,
         marginLeft:"5%",
         marginBottom:20,  
+        fontWeight:"300"
       },
       paymentAdd:
       {
-        width:'80%',
-        fontSize:14,
+        width:responsiveWidth(70),
+        fontSize:12,
         textAlign: 'center',
         alignSelf: "center",
         justifyContent: 'center',
@@ -67,6 +70,16 @@ const appStyle =StyleSheet.create({
       {
         width: 23, 
         height: 23,
+        resizeMode: 'stretch' 
+      },
+      applepay:{
+        width: 25, 
+        height: 25,
+        resizeMode: 'stretch' 
+      },
+      Visa:{
+        width: 25, 
+        height: 25,
         resizeMode: 'stretch' 
       },
       signIn:
@@ -103,7 +116,7 @@ const appStyle =StyleSheet.create({
        
       },
       downloadView:{
-        marginTop:"30%",
+        marginTop:"15%",
         marginBottom:"50%",
         alignSelf: "center",
         justifyContent: 'center',
@@ -113,21 +126,23 @@ const appStyle =StyleSheet.create({
         fontSize: 14,
         color: "#101828",
         fontWeight: "bold",
-        borderRadius:10,
+        //borderRadius:10,
         // alignSelf: "center",
         flexDirection: 'row',
         textTransform: "uppercase"
       },
       appButtonSoical: {
         width:"90%",
-        elevation: 1,
-        shadowColor: "black",
-        shadowOpacity: 0.8,
-        shadowRadius: 1,
-        shadowOffset: {
-          height: 1,
-          width: 1
-        },
+        
+        height:responsiveHeight(10),
+       // elevation: 1,
+        //shadowColor: "black",
+        //shadowOpacity: 0.8,
+       // shadowRadius: 1,
+        // shadowOffset: {
+        //   height: 1,
+        //   width: 1
+        // },
 
         alignSelf: 'center',
         // borderWidth: 1,
@@ -135,8 +150,8 @@ const appStyle =StyleSheet.create({
         // borderRadius: 20,
         paddingVertical: 10,
         paddingHorizontal: 12,
-        marginTop:10,
-         height:57,
+        
+        //height:responsiveHeight(10),
          justifyContent: 'center',
       },
     rowLabelText: {

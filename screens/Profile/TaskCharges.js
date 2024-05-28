@@ -17,7 +17,7 @@ import {
 } from "react-native-responsive-dimensions";
 import { Regular } from "../../constants/fonts";
 // create a component
-const TaskCharges = () => {
+const TaskCharges = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={profile.welcome}>
