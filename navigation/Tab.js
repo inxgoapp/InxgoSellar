@@ -51,7 +51,7 @@ import Pin from "../screens/Wallet/Pin";
 import Faq from "../screens/Menu/Faq";
 import Settings from "../screens/Settings";
 import Experties from "../screens/Booking/Experties";
-
+import Languages from "../screens/Profile/Languages";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -84,6 +84,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Faq" component={Faq} />
       <Tab.Screen name="Settings" component={Settings} />
       <Tab.Screen name="Experties" component={Experties} />
+      <Tab.Screen name="Languages" component={Languages} />
 
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />

@@ -96,7 +96,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.viewstyle}>
           <Image source={require("../../assets/translate.png")} />
           <TouchableOpacity
-            onPress={() => navigation.navigate("TermsConditions")}
+            onPress={() => navigation.navigate("Languages")}
           >
             <Text style={styles.txt}>Language</Text>
           </TouchableOpacity>
