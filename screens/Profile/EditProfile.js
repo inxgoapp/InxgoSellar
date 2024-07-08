@@ -4,10 +4,14 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+const arrow_back = require("../../assets/arrow_back.png");
 
-import { Bold, Regular } from "../../constants/fonts";
+import { Bold, Regular,Medium } from "../../constants/fonts";
 import CustomButton from "../../components/CustomButton";
-
+import profile from "../../style/profile";
+import { assets } from "../../react-native.config";
+import Footer from "../Footer/Index";
+import Switcher from "../../components/Switcher";
 // create a component
 const EditProfile = ({ navigation }) => {
   return (
@@ -18,93 +22,101 @@ const EditProfile = ({ navigation }) => {
           justifyContent: "space-between",
           marginRight: 20,
           paddingLeft: 10,
-height:responsiveHeight(10)
+          height: responsiveHeight(5),
         }}
       >
-        <Image source={require("../../assets/FrameJ.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <Image source={require("../../assets/Close.png")} />
+        <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
+          <Image style={profile.arrow_back} source={arrow_back} />
         </TouchableOpacity>
+        <Text style={{ fontSize: 20, fontFamily:Medium ,right:110}}>Profile</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Image source={require("../../assets/SettingP.png")} />
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+         // marginRight: 20,
+         paddingLeft: 10,
+          height: responsiveHeight(20),
+        }}
+      >
+        <Image
+          source={require("../../assets/FrameJ.png")}
+          style={{ height: 140, width: 140 }}
+        />
+        <Image
+          source={require("../../assets/Editbtn.png")}
+          style={{ right: 30, marginTop: 90 }}
+        />
       </View>
       <View style={styles.viewstyle1}>
-        <Text style={{ fontSize: 28, fontFamily: Bold, fontWeight: "700" }}>
-          Welcome Jane Doe!
-        </Text>
+        <Text style={{ fontSize: 20, fontFamily: Medium,textAlign:'center' }}>Jane Doe </Text>
+        <Text style={{ fontSize: 20, fontFamily: Medium }}>+92 334 1234567  </Text>
+
       </View>
-      <View style={{height:responsiveHeight(65)}}>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/User.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-          <Text style={styles.txt}>Edit Profile</Text>
-        </TouchableOpacity>
+      <View style={{height:responsiveHeight(1),alignItems:'center'}}>
+        <Image source={require("../../assets/Line.png")}/>
       </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/WalletP.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Credit")}>
-          <Text style={styles.txt}>Wallet</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Bell.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
-          <Text style={styles.txt}>Alerts</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Deal.png")} />
-        <TouchableOpacity>
-          <Text style={styles.txt}>Partner with Us</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Guideline.png")} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate("CommunityGuidelines")}
-        >
-          <Text style={styles.txt}>Community Guidelines</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Accept.png")} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate("TermsConditions")}
-        >
-          <Text style={styles.txt}>Terms and Conditions</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Information.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("About")}>
-          <Text style={styles.txt}>About Us</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/Help.png")} />
-        <TouchableOpacity onPress={() => navigation.navigate("Faq")}>
-          <Text style={styles.txt}>FAQS</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewstyle}>
-        <Image source={require("../../assets/SettingP.png")} />
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Country");
-          }}
-        >
-          <Text style={styles.txt}>Settings</Text>
-        </TouchableOpacity>
-      </View>
+      <View style={{ height: responsiveHeight(40) }}>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/Profile.png")} />
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Text style={styles.txt}>Edit Profile</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/address.png")} />
+          <TouchableOpacity onPress={() => navigation.navigate("Credit")}>
+            <Text style={styles.txt}>Address</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/description.png")} />
+          <TouchableOpacity onPress={() => navigation.navigate("Summary")}>
+            <Text style={styles.txt}>Summary</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/wallet.png")} />
+          <TouchableOpacity  onPress={() => navigation.navigate("TaskCharges")}>
+            <Text style={styles.txt}>Task Charges</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/work.png")} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("CommunityGuidelines")}
+          >
+            <Text style={styles.txt}>Work Experience</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.viewstyle}>
+          <Image source={require("../../assets/translate.png")} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("TermsConditions")}
+          >
+            <Text style={styles.txt}>Language</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       {/* <View style={{ height: responsiveHeight(7) }}></View> */}
-      <View style={{ height: responsiveHeight(15),justifyContent:'center' }}>
+      {/* <View style={{ height: responsiveHeight(5), justifyContent: "center" }}>
         <CustomButton
           title={"Logout"}
           color="#FFC44D"
           width={responsiveWidth(40)}
           onPress={() => navigation.navigate("Login")}
         />
+      </View> */}
+      <View style={{height:responsiveHeight(15),justifyContent:'center'}}>
+      <Switcher/>
+
       </View>
-    </View>
+      <Footer flag={"Profile"} navigation={navigation} />
+      </View>
   );
 };
 
@@ -125,17 +137,15 @@ const styles = StyleSheet.create({
   viewstyle: {
     flexDirection: "row",
     paddingHorizontal: 20,
-    marginTop:25,
- //   backgroundColor:'green'
- 
+    marginTop: 25,
+    //   backgroundColor:'green'
   },
   viewstyle1: {
-    flexDirection: "row",
-    paddingHorizontal: 20,
+   // justifyContent: "center",
+   // paddingHorizontal: 20,
     // marginTop: 30,
-    
-    alignItems:'center',
-    height:responsiveHeight(10)
+    alignItems: "center",
+    height: responsiveHeight(10),
   },
 });
 

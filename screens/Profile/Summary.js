@@ -6,7 +6,7 @@ import arrow_back from "../../assets/arrow_back.png";
 import { responsiveWidth,responsiveHeight } from "react-native-responsive-dimensions";
 import CustomButton from "../../components/CustomButton";
 // create a component
-const Summary = () => {
+const Summary = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={profile.welcome}>

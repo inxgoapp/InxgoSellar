@@ -49,6 +49,8 @@ import Summary from "../screens/Profile/Summary";
 import TaskCharges from "../screens/Profile/TaskCharges";
 import Pin from "../screens/Wallet/Pin";
 import Faq from "../screens/Menu/Faq";
+import Settings from "../screens/Settings";
+import Experties from "../screens/Booking/Experties";
 
 const Tab = createBottomTabNavigator();
 
@@ -80,6 +82,8 @@ const Tabs = (props) => {
       <Tab.Screen name="TaskCharges" component={TaskCharges} />
       <Tab.Screen name="Pin" component={Pin} />
       <Tab.Screen name="Faq" component={Faq} />
+      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Experties" component={Experties} />
 
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />
