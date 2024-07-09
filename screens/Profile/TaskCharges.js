@@ -35,10 +35,11 @@ const TaskCharges = ({navigation}) => {
           keyboardType="numeric"
           style={{
             marginHorizontal: 20,
-            borderWidth: 1,
+          //  borderWidth: 1,
             height: 50,
             top: 10,
-            borderColor: "#FFC44D",
+           // borderColor: "#FFC44D",
+             backgroundColor:"FAFAFA",
             paddingHorizontal: 20,
             width:responsiveWidth(90),
 
@@ -54,10 +55,12 @@ const TaskCharges = ({navigation}) => {
           keyboardType="numeric"
           style={{
             marginHorizontal: 20,
-            borderWidth: 1,
+         //   borderWidth: 1,
             height: 50,
             top: 10,
-            borderColor: "#FFC44D",
+           // borderColor: "#FFC44D",
+            // backgroundColor:"#FAFAFA",
+
             paddingHorizontal: 20,
             width:responsiveWidth(90),
 
@@ -73,10 +76,12 @@ const TaskCharges = ({navigation}) => {
           keyboardType="numeric"
           style={{
             marginHorizontal: 20,
-            borderWidth: 1,
+         //   borderWidth: 1,
             height: 50,
             top: 10,
-            borderColor: "#FFC44D",
+           // borderColor: "#FFC44D",
+            backgroundColor:"#FAFAFA",
+
             paddingHorizontal: 20,
             width:responsiveWidth(90),
 
@@ -93,10 +98,11 @@ const TaskCharges = ({navigation}) => {
           keyboardType="numeric"
           style={{
             marginHorizontal: 20,
-            borderWidth: 1,
+          //  borderWidth: 1,
             height: 50,
             top: 10,
-            borderColor: "#FFC44D",
+           // borderColor: "#E7E7E7",
+           backgroundColor:"#FAFAFA",
             width:responsiveWidth(90),
             paddingHorizontal: 20,
            
@@ -115,7 +121,7 @@ const TaskCharges = ({navigation}) => {
           title={"Save"}
           color="#FFC44D"
           width={responsiveWidth(80)}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("WorkExperience")}
         />
       </View>
     </View>
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "white",
   },
 });
 
