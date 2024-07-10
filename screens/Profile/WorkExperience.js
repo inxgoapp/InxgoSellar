@@ -17,12 +17,23 @@ import profile from "../../style/profile";
 import arrow_back from "../../assets/arrow_back.png";
 import { Regular, Medium } from "../../constants/fonts";
 import DocumentPicker from 'react-native-document-picker';
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 
 // create a component
 const WorkExperience = ({ navigation }) => {
   const [selectedDocument, setSelectedDocument] = useState(null);
+  const [show, setShow] = useState(false);
+  const [date, setDate] = useState(new Date());
 
+  const showDatePicker = () => {
+    setShow(true);
+  };
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(false);
+    setDate(currentDate);
+  };
   const handleUploadFile = async () => {
     try {
       const res = await DocumentPicker.pick({
@@ -110,6 +121,95 @@ const WorkExperience = ({ navigation }) => {
           }}
         ></TextInput>
         {/* <Image source={require("../../assets/DownArrow.png")}  style={{marginLeft:340,top:45,position:'absolute'}}/>  */}
+      </View>
+      {/* <View style={{ marginTop: 20,flexDirection:'row',  marginHorizontal: 20,}}>
+        <Text> From</Text>
+        <Text> To</Text>
+
+      </View> */}
+      <View
+                style={{
+                    paddingHorizontal: 20,
+                    marginTop: 20,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width:responsiveWidth(80)
+                }}
+            >
+                <Text style={{ fontSize: 14,  fontFamily: Regular }}>
+                    From        
+                </Text>
+                <TouchableOpacity >
+                    <Text style={{ fontSize: 14, color: "black", fontFamily: Regular }}>
+To                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ marginTop: 10 ,flexDirection:"row"}}>
+        <TextInput
+          placeholder=""
+          keyboardType="numeric"
+          style={{
+            marginHorizontal: 20,
+            //   borderWidth: 1,
+            height: 50,
+            top: 10,
+            // borderColor: "#FFC44D",
+            backgroundColor: "#FAFAFA",
+
+            paddingHorizontal: 20,
+            width: responsiveWidth(45),
+          }}
+          value={date.toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+        ></TextInput>
+        <TouchableOpacity  onPress={showDatePicker} 
+                >
+        <Image source={require("../../assets/DownArrow.png")}  style={{top:25,position:'absolute',right:30}}/>
+
+        </TouchableOpacity>
+        {show && (
+                <DateTimePicker
+                  value={date}
+                  mode="date"
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+         <TextInput
+          placeholder=""
+          keyboardType="numeric"
+          style={{
+            // marginHorizontal: 20,
+            //   borderWidth: 1,
+            height: 50,
+            top: 10,
+            // borderColor: "#FFC44D",
+            backgroundColor: "#FAFAFA",
+
+            paddingHorizontal: 20,
+            width: responsiveWidth(40),
+          }}
+          value={date.toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+        ></TextInput>
+        <TouchableOpacity onPress={showDatePicker} >
+        <Image source={require("../../assets/DownArrow.png")}  style={{top:25,position:'absolute',right:10}}/>    
+
+        </TouchableOpacity>
+        {show && (
+                <DateTimePicker
+                  value={date}
+                  mode="date"
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
       </View>
       <View style={{ marginTop: 20 }}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
