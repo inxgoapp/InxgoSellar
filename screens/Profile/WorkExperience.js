@@ -18,22 +18,40 @@ import arrow_back from "../../assets/arrow_back.png";
 import { Regular, Medium } from "../../constants/fonts";
 import DocumentPicker from 'react-native-document-picker';
 import DateTimePicker from "@react-native-community/datetimepicker";
+import * as ImagePicker from "expo-image-picker";
+import upload_file from "../../assets/upload_file.png";
+import CustomButton from "../../components/CustomButton";
 
 
 // create a component
 const WorkExperience = ({ navigation }) => {
   const [selectedDocument, setSelectedDocument] = useState(null);
-  const [show, setShow] = useState(false);
-  const [date, setDate] = useState(new Date());
+  const [showStartDatePicker, setShowStartDatePicker] = useState(false);
+  const [showEndDatePicker, setShowEndDatePicker] = useState(false);
+  const [image, setImage] = useState(null);
 
-  const showDatePicker = () => {
-    setShow(true);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const showStartDatePickerModal = () => {
+    setShowStartDatePicker(true);
   };
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(false);
-    setDate(currentDate);
+
+  const showEndDatePickerModal = () => {
+    setShowEndDatePicker(true);
   };
+
+  const onChangeStartDate = (event, selectedDate) => {
+    const currentDate = selectedDate || startDate;
+    setShowStartDatePicker(false);
+    setStartDate(currentDate);
+  };
+
+  const onChangeEndDate = (event, selectedDate) => {
+    const currentDate = selectedDate || endDate;
+    setShowEndDatePicker(false);
+    setEndDate(currentDate);
+  };
+
   const handleUploadFile = async () => {
     try {
       const res = await DocumentPicker.pick({
@@ -58,9 +76,24 @@ const WorkExperience = ({ navigation }) => {
     
   
   };
-  
+  const openImagePickerAsync = async () => {
+    let permissionResult =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+      return;
+    }
+    let pickerResult = await ImagePicker.launchImageLibraryAsync({
+      quality: 1,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    });
+    if (!pickerResult.cancelled) {
+      setImage(pickerResult.assets[0].uri);
+    }
+  };
+
   return (
-  
+    <ScrollView keyboardDismissMode={'on-drag'} style={{height:'100%',backgroundColor:'white'}}>
     <View style={styles.container}>
       <View
         style={{
@@ -69,19 +102,20 @@ const WorkExperience = ({ navigation }) => {
           marginRight: 20,
           paddingLeft: 10,
           height: responsiveHeight(5),
+          backgroundColor:'pink'
         }}
       >
         <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
           <Image style={profile.arrow_back} source={arrow_back} />
         </TouchableOpacity>
-        <Text style={{ fontSize: 20, fontFamily: Medium, right: 70 }}>
+        <Text style={{ fontSize: 20, fontFamily: Medium, right:50 }}>
           Work Experience
         </Text>
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Image source={require("../../assets/deleted.png")} />
         </TouchableOpacity>
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ height:responsiveHeight(15),backgroundColor:'gray',justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Job Title
         </Text>
@@ -101,7 +135,7 @@ const WorkExperience = ({ navigation }) => {
           }}
         ></TextInput>
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ height:responsiveHeight(15),backgroundColor:'red',justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Company
         </Text>
@@ -131,9 +165,12 @@ const WorkExperience = ({ navigation }) => {
                 style={{
                     paddingHorizontal: 20,
                     marginTop: 20,
+                   //justifyContent:'center',
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    width:responsiveWidth(80)
+                    // width:responsiveWidth(100),
+                    height:responsiveHeight(3),
+                    backgroundColor:'pink'
                 }}
             >
                 <Text style={{ fontSize: 14,  fontFamily: Regular }}>
@@ -144,10 +181,11 @@ const WorkExperience = ({ navigation }) => {
 To                    </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ marginTop: 10 ,flexDirection:"row"}}>
+            <View style={{ flexDirection:"row",backgroundColor:'red',height:responsiveHeight(8)}}>
         <TextInput
-          placeholder=""
+          placeholder="Start Date"
           keyboardType="numeric"
+          editable={false}
           style={{
             marginHorizontal: 20,
             //   borderWidth: 1,
@@ -157,30 +195,31 @@ To                    </Text>
             backgroundColor: "#FAFAFA",
 
             paddingHorizontal: 20,
-            width: responsiveWidth(45),
+            width: responsiveWidth(42),
           }}
-          value={date.toLocaleDateString("en-US", {
+          value={startDate.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",
                 })}
         ></TextInput>
-        <TouchableOpacity  onPress={showDatePicker} 
+        <TouchableOpacity  onPress={showStartDatePickerModal} 
                 >
         <Image source={require("../../assets/DownArrow.png")}  style={{top:25,position:'absolute',right:30}}/>
 
         </TouchableOpacity>
-        {show && (
+        {showStartDatePicker  && (
                 <DateTimePicker
-                  value={date}
+                  value={startDate}
                   mode="date"
                   display="default"
-                  onChange={onChange}
+                  onChange={onChangeStartDate}
                 />
               )}
          <TextInput
-          placeholder=""
-          keyboardType="numeric"
+          placeholder="End Date"
+          //keyboardType="numeric"
+          editable={false}
           style={{
             // marginHorizontal: 20,
             //   borderWidth: 1,
@@ -190,34 +229,41 @@ To                    </Text>
             backgroundColor: "#FAFAFA",
 
             paddingHorizontal: 20,
-            width: responsiveWidth(40),
+            width: responsiveWidth(42),
           }}
-          value={date.toLocaleDateString("en-US", {
+          value={endDate.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",
                 })}
         ></TextInput>
-        <TouchableOpacity onPress={showDatePicker} >
+        <TouchableOpacity onPress={showEndDatePickerModal} >
         <Image source={require("../../assets/DownArrow.png")}  style={{top:25,position:'absolute',right:10}}/>    
 
         </TouchableOpacity>
-        {show && (
+        {showEndDatePicker  && (
                 <DateTimePicker
-                  value={date}
+                  value={endDate}
                   mode="date"
                   display="default"
-                  onChange={onChange}
+                  onChange={onChangeEndDate}
                 />
               )}
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={{flexDirection:'row', height:responsiveHeight(3),alignItems:'center',backgroundColor:'green'}}>
+      <Text style={{fontSize:12,fontFamily:Regular,paddingHorizontal:20}}>I am currently work here</Text>
+      <Image source={require("../../assets/toggle_off.png")}/>
+
+      </View>
+      <View style={{height:responsiveHeight(25),backgroundColor:'red',justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Description (Optional)
         </Text>
         <TextInput
           placeholder=""
-          keyboardType="numeric"
+          editable={false}
+
+         // keyboardType="numeric"
           style={{
             marginHorizontal: 20,
             //   borderWidth: 1,
@@ -231,7 +277,7 @@ To                    </Text>
           }}
         ></TextInput>
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ height:responsiveHeight(25),backgroundColor:'pink',justifyContent:'center' }}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Add Media (Optional){" "}
         </Text>
@@ -251,19 +297,22 @@ To                    </Text>
 
         </View>
         
-        <TouchableOpacity  onPress={handleUploadFile}>
+        <TouchableOpacity  onPress={openImagePickerAsync} activeOpacity={0.5}>
         <Image
           source={require("../../assets/upload_file.png")}
-          style={{ position: "absolute",bottom:45, left: 190 }}
+         // source={image ? { uri: image } : upload_file}
+         style={{ position: "absolute",bottom:45, left: 190 }}
+         // style={{ height:20,width:20,left: 190 ,bottom:45 }}
+
         />
         </TouchableOpacity>
       
         <Text style={{fontFamily:Regular,fontSize:12,textAlign:'center',bottom:40}}>Browse Files</Text> 
       </View>
       
-      <View style={{ marginTop: 20 }}>
+      <View style={{height:responsiveHeight(15),backgroundColor:'red',justifyContent:'center' }}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
-          Company
+        Key Skills
         </Text>
         <TextInput
           placeholder="Plumbing Systems Installation and Repair"
@@ -284,11 +333,27 @@ To                    </Text>
          <Image source={require("../../assets/Plus.png")}  style={{marginLeft:350,position:'absolute',bottom:5}}/> 
          </TouchableOpacity>
       </View>
+      <View style={{height:responsiveHeight(5),width:responsiveWidth(80),marginLeft:20,flexDirection:"row"}}>
+        <Text style={{borderWidth:1,borderColor:'#C4C4C4',borderRadius:20,paddingVertical:10,paddingHorizontal:20}}>Plumbing Systems Installation </Text>
+        <Image source={require("../../assets/closed.png")} style={{top:14,right:20}}/>
+
+      </View>
+      <View
+        style={{ height: responsiveHeight(20), justifyContent:'center' ,backgroundColor:"pink"}}
+      >
+        <CustomButton
+          title={"Save"}
+          color="#FFC44D"
+          width={responsiveWidth(80)}
+          onPress={() => navigation.navigate("WorkExperience")}
+        />
+      </View>
       {/* <View style={{flexDirection:"row",backgroundColor:'pink',borderWidth:1,paddingHorizontal:20,height:30}}>
         <Text style={{}}>Pipefitting and Welding</Text>
         <Image source={require("../../assets/Crossed.png")}/>
       </View> */}
     </View>
+    </ScrollView>
   );
 };
 
