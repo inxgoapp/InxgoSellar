@@ -309,7 +309,7 @@ To                    </Text>
         <Text style={{fontFamily:Regular,fontSize:12,textAlign:'center',bottom:40}}>Browse Files</Text> 
       </View>
       
-      <View style={{height:responsiveHeight(15),backgroundColor:'red',justifyContent:'center' }}>
+      <View style={{height:responsiveHeight(15),justifyContent:'center' }}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
         Key Skills
         </Text>
@@ -338,7 +338,7 @@ To                    </Text>
 
       </View>
       <View
-        style={{ height: responsiveHeight(20), justifyContent:'center' ,backgroundColor:"pink"}}
+        style={{ height: responsiveHeight(20), justifyContent:'center'}}
       >
         <CustomButton
           title={"Save"}
