@@ -88,7 +88,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.viewstyle}>
           <Image source={require("../../assets/work.png")} />
           <TouchableOpacity
-            onPress={() => navigation.navigate("CommunityGuidelines")}
+            onPress={() => navigation.navigate("WorkExperience")}
           >
             <Text style={styles.txt}>Work Experience</Text>
           </TouchableOpacity>
@@ -115,7 +115,7 @@ const EditProfile = ({ navigation }) => {
       <Switcher/>
 
       </View>
-      <Footer flag={"Profile"} navigation={navigation} />
+      <Footer flag={"SellerProfile"} navigation={navigation} />
       </View>
   );
 };

@@ -18,7 +18,7 @@ import arrow_back from "../../assets/arrow_back.png";
 import { Regular, Medium } from "../../constants/fonts";
 import DocumentPicker from 'react-native-document-picker';
 import DateTimePicker from "@react-native-community/datetimepicker";
-import * as ImagePicker from "expo-image-picker";
+import * as ImagePicker from "expo-image-picker";         
 import upload_file from "../../assets/upload_file.png";
 import CustomButton from "../../components/CustomButton";
 
@@ -102,7 +102,6 @@ const WorkExperience = ({ navigation }) => {
           marginRight: 20,
           paddingLeft: 10,
           height: responsiveHeight(5),
-          backgroundColor:'pink'
         }}
       >
         <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
@@ -115,7 +114,7 @@ const WorkExperience = ({ navigation }) => {
           <Image source={require("../../assets/deleted.png")} />
         </TouchableOpacity>
       </View>
-      <View style={{ height:responsiveHeight(15),backgroundColor:'gray',justifyContent:'center'}}>
+      <View style={{ height:responsiveHeight(15),justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Job Title
         </Text>
@@ -135,7 +134,7 @@ const WorkExperience = ({ navigation }) => {
           }}
         ></TextInput>
       </View>
-      <View style={{ height:responsiveHeight(15),backgroundColor:'red',justifyContent:'center'}}>
+      <View style={{ height:responsiveHeight(15),justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Company
         </Text>
@@ -170,7 +169,7 @@ const WorkExperience = ({ navigation }) => {
                     justifyContent: "space-between",
                     // width:responsiveWidth(100),
                     height:responsiveHeight(3),
-                    backgroundColor:'pink'
+                   
                 }}
             >
                 <Text style={{ fontSize: 14,  fontFamily: Regular }}>
@@ -181,7 +180,7 @@ const WorkExperience = ({ navigation }) => {
 To                    </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flexDirection:"row",backgroundColor:'red',height:responsiveHeight(8)}}>
+            <View style={{ flexDirection:"row",height:responsiveHeight(8)}}>
         <TextInput
           placeholder="Start Date"
           keyboardType="numeric"
@@ -250,12 +249,12 @@ To                    </Text>
                 />
               )}
       </View>
-      <View style={{flexDirection:'row', height:responsiveHeight(3),alignItems:'center',backgroundColor:'green'}}>
+      <View style={{flexDirection:'row', height:responsiveHeight(3),alignItems:'center',}}>
       <Text style={{fontSize:12,fontFamily:Regular,paddingHorizontal:20}}>I am currently work here</Text>
       <Image source={require("../../assets/toggle_off.png")}/>
 
       </View>
-      <View style={{height:responsiveHeight(25),backgroundColor:'red',justifyContent:'center'}}>
+      <View style={{height:responsiveHeight(25),justifyContent:'center'}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Description (Optional)
         </Text>
@@ -277,7 +276,7 @@ To                    </Text>
           }}
         ></TextInput>
       </View>
-      <View style={{ height:responsiveHeight(25),backgroundColor:'pink',justifyContent:'center' }}>
+      <View style={{ height:responsiveHeight(25),justifyContent:'center' }}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Add Media (Optional){" "}
         </Text>
