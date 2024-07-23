@@ -53,6 +53,7 @@ import Settings from "../screens/Settings";
 import Experties from "../screens/Booking/Experties";
 import WorkExperience from "../screens/Profile/WorkExperience";
 import Languages from "../screens/Profile/Languages";
+import NewAddress from "../screens/Notification/NewAddress";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -88,6 +89,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Settings" component={Settings} />
       <Tab.Screen name="Experties" component={Experties} />
       <Tab.Screen name="Languages" component={Languages} />
+      <Tab.Screen name="NewAddress" component={NewAddress} />
 
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />

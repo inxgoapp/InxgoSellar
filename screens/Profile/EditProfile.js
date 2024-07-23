@@ -69,7 +69,7 @@ const EditProfile = ({ navigation }) => {
         </View>
         <View style={styles.viewstyle}>
           <Image source={require("../../assets/address.png")} />
-          <TouchableOpacity onPress={() => navigation.navigate("Credit")}>
+          <TouchableOpacity onPress={() => navigation.navigate("NewAddress")}>
             <Text style={styles.txt}>Address</Text>
           </TouchableOpacity>
         </View>

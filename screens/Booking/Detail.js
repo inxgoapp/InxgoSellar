@@ -299,7 +299,7 @@ const Detail = ({ navigation }) => {
                     bottom: 26,
                     right: 4,
                     fontWeight: "600",
-                    color: "blue",
+                    color: "#FFC44D",
                     fontSize: 12,
                   }}
                 >
@@ -323,7 +323,7 @@ const Detail = ({ navigation }) => {
                     bottom: 93,
                     right: 1,
                     fontWeight: "600",
-                    color: "blue",
+                    color: "#FFC44D",
                     fontSize: 12,
                   }}
                 >
