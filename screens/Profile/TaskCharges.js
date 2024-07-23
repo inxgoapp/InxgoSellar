@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,10 +7,13 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  
 } from "react-native";
 import profile from "../../style/profile";
 import arrow_back from "../../assets/arrow_back.png";
 import CustomButton from "../../components/CustomButton";
+import DropDownPicker from 'react-native-dropdown-picker';
+
 import {
   responsiveWidth,
   responsiveHeight,
@@ -18,6 +21,23 @@ import {
 import { Regular } from "../../constants/fonts";
 // create a component
 const TaskCharges = ({navigation}) => {
+  const [currencyOpen, setCurrencyOpen] = useState(false);
+  const [currencyValue, setCurrencyValue] = useState(null);
+  const [frequencyOpen, setFrequencyOpen] = useState(false);
+  const [frequencyValue, setFrequencyValue] = useState(null);
+
+  // Currency options
+  const currencyItems = [
+    { label: 'Pound', value: 'GBP' },
+    { label: 'Pkr', value: 'PKR' },
+    { label: 'Euro', value: 'EU' },
+  ];
+
+  // Frequency options
+  const frequencyItems = [
+    { label: 'Hourly', value: 'hourly' },
+    { label: 'Fixed', value: 'fixed' },
+  ];
   return (
     <View style={styles.container}>
       <View style={profile.welcome}>
@@ -39,7 +59,7 @@ const TaskCharges = ({navigation}) => {
             height: 50,
             top: 10,
            // borderColor: "#FFC44D",
-             backgroundColor:"FAFAFA",
+             backgroundColor:"#FAFAFA",
             paddingHorizontal: 20,
             width:responsiveWidth(90),
 
@@ -59,7 +79,7 @@ const TaskCharges = ({navigation}) => {
             height: 50,
             top: 10,
            // borderColor: "#FFC44D",
-            // backgroundColor:"#FAFAFA",
+             backgroundColor:"#FAFAFA",
 
             paddingHorizontal: 20,
             width:responsiveWidth(90),
@@ -68,54 +88,47 @@ const TaskCharges = ({navigation}) => {
         ></TextInput>
       </View>
       <View style={{ marginTop: 20 }}>
-        <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
-          Currency:
-        </Text>
-        <TextInput
-          placeholder="USD"
-          keyboardType="numeric"
-          style={{
-            marginHorizontal: 20,
-         //   borderWidth: 1,
-            height: 50,
-            top: 10,
-           // borderColor: "#FFC44D",
-            backgroundColor:"#FAFAFA",
+       <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>Currency:</Text> 
+       <DropDownPicker
+  open={currencyOpen}
+  value={currencyValue}
+  items={currencyItems}
+  setOpen={setCurrencyOpen}
+  setValue={setCurrencyValue}
+  placeholder="Select Currency"
+  style={{ backgroundColor: '#FAFAFA',borderWidth:0 ,width:responsiveWidth(90),marginLeft:20,marginTop:20}}
+  // dropDownContainerStyle={{paddingHorizontal:20 }} // Attempt to offset any border
+  textStyle={{ fontSize: 12}}
+   maxHeight={80} // Limit the height of the dropdown list
 
-            paddingHorizontal: 20,
-            width:responsiveWidth(90),
+  dropDownTextStyle={{ fontSize: 12}}
+/>
 
-          }}
-        ></TextInput>
-         <Image source={require("../../assets/DownArrow.png")}  style={{marginLeft:340,top:45,position:'absolute'}}/> 
-      </View>
+      {/* <Image source={require("../../assets/DownArrow.png")} style={{marginLeft:340,top:45,position:'absolute'}}/> */}
+    </View>
+
       <View style={{ marginTop: 20}}>
         <Text style={{ marginHorizontal: 20, fontFamily: Regular }}>
           Frequency:
         </Text>
-        <TextInput
-          placeholder="Hourly"
-          keyboardType="numeric"
-          style={{
-            marginHorizontal: 20,
-          //  borderWidth: 1,
-            height: 50,
-            top: 10,
-           // borderColor: "#E7E7E7",
-           backgroundColor:"#FAFAFA",
-            width:responsiveWidth(90),
-            paddingHorizontal: 20,
-           
-            
-          }}
-          
-        >
-             
-        </TextInput>
-         <Image source={require("../../assets/DownArrow.png")}  style={{marginLeft:340,top:45,position:'absolute'}}/> 
+        <DropDownPicker
+          open={frequencyOpen}
+          value={frequencyValue}
+          items={frequencyItems}
+          setOpen={setFrequencyOpen}
+          setValue={setFrequencyValue}
+          placeholder="Select Frequency"
+          style={{ backgroundColor: '#FAFAFA', borderWidth: 0, width: responsiveWidth(90), marginLeft: 20, marginTop: 20 }}
+          textStyle={{ fontSize: 12}}
+          dropDownTextStyle={{ fontSize: 12}}
+          maxHeight={80} // Limit the height of the dropdown list
+
+
+        />
+         {/* <Image source={require("../../assets/DownArrow.png")}  style={{marginLeft:340,top:45,position:'absolute'}}/>  */}
       </View>
       <View
-        style={{ height: responsiveHeight(45), justifyContent: "flex-end" }}
+        style={{ height: responsiveHeight(25), justifyContent: "flex-end" }}
       >
         <CustomButton
           title={"Save"}
@@ -135,6 +148,14 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
     // alignItems: "center",
     backgroundColor: "white",
+  }, listContainer: {
+    width:responsiveWidth(20), 
+
+
+
+    justifyContent:'flex-end'
+    // Constrain the width of the dropdown list
+    // marginLeft: , // Optional: Add left margin if needed
   },
 });
 
