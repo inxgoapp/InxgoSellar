@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const appStyle = StyleSheet.create({
   promtionTwo: {
@@ -28,7 +29,8 @@ const appStyle = StyleSheet.create({
     // alignSelf: 'flex-start',
   },
   RightContainer: {
-    width: "35%",
+    width: responsiveWidth(35),
+    height:responsiveHeight(8)
     // alignSelf: 'flex-end',
   },
   image: {

@@ -7,7 +7,8 @@ import location from "../../assets/assistant_direction.png";
 import hrs from "../../assets/icons/hrs.png";
 import circle from "../../assets/icons/circle.png";
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
-import { Medium } from "../../constants/fonts";
+import { Bold, Medium, Regular } from "../../constants/fonts";
+import CustomButton from "../../components/CustomButton";
 
 const Accepted = ({ navigation }) => {
   return (
@@ -22,7 +23,7 @@ const Accepted = ({ navigation }) => {
         height:responsiveHeight(30)
       }}
     >
-      <View style={{ flexDirection: "row", width:responsiveWidth(100), marginTop: 20 ,height:responsiveHeight(8),backgroundColor:'pink'}}>
+      <View style={{ flexDirection: "row", width:responsiveWidth(100), marginTop: 20 ,height:responsiveHeight(8)}}>
         <Image style={wallet.image} source={image_upload} />
         <View style={wallet.LeftContainer}>
           <View style={{ flexDirection: "row",}}>
@@ -35,16 +36,16 @@ const Accepted = ({ navigation }) => {
             <View
               style={{
                 right: 10,
-                width: 80,
+                width: 70,
                 top:10,
-                height: 25,
+                height: 22,
                 backgroundColor: "#9AEF56",
                 alignSelf: "center",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 14 }}>Accepted</Text>
+              <Text style={{ fontSize: 10,fontFamily:Medium }}>Accepted</Text>
             </View>
           </View>
          
@@ -62,7 +63,7 @@ const Accepted = ({ navigation }) => {
       >
         <View style={{ width: "38%", marginLeft: 5, flexDirection: "row" }}>
           <Image source={location} />
-          <Text style={{ fontSize: 14, fontWeight: "bold", marginLeft: 2 }}>
+          <Text style={{ fontSize: 12, fontWeight:Medium, marginLeft: 2 }}>
             Sadiq Centre LHR
           </Text>
         </View>
@@ -76,12 +77,12 @@ const Accepted = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Image style={{ width: 15, height: 15 }} source={hrs} />
+          <Image style={{ width: 15, height: 15 }} source={circle} />
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 12,
               textAlign: "center",
-              fontWeight: "bold",
+              fontWeight: Medium,
               marginLeft: 2,
             }}
           >
@@ -98,12 +99,12 @@ const Accepted = ({ navigation }) => {
             flexDirection: "row",
           }}
         >
-          <Image style={{ width: 15, height: 15 }} source={circle} />
+          <Image style={{ width: 15, height: 15 }} source={hrs} />
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 12,
               textAlign: "center",
-              fontWeight: "bold",
+              fontWeight:Medium,
               marginLeft: 2,
             }}
           >
@@ -111,6 +112,41 @@ const Accepted = ({ navigation }) => {
           </Text>
         </View>
       </View>
+      <View
+        style={{
+          width:responsiveWidth(90),
+          flexDirection: "row",
+          alignSelf: "center",
+          justifyContent:'space-around',
+           alignItems: "center",
+           height:responsiveHeight(5),
+          //  backgroundColor:'pink'
+        }}
+      >
+          <Text style={{ fontSize: 12, fontWeight:Regular, }}>
+          Date & Time          </Text>
+        
+       
+        
+          <Text
+            style={{
+              fontSize: 12,
+              textAlign: "center",
+              fontFamily:Bold
+              
+            }}
+          >
+June 01, 2023 /11:00 AM          </Text>
+      </View>
+<View style={{height:responsiveHeight(10),justifyContent:"flex-end"}}>
+<CustomButton
+          title={"Start"}
+          color="#FFC44D"
+          width={responsiveWidth(80)}
+          onPress={() => navigation.navigate("WorkExperience")}
+        />
+</View>
+      
     </View>
   );
 };
