@@ -2,7 +2,7 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import wallet from "../../style/wallet";
-import image_upload from "../../assets/image_upload.png";
+import image_upload from "../../assets/Frame.png";
 import rightarrow from "../../assets/rightarrow.png";
 import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
