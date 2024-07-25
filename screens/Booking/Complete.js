@@ -8,6 +8,7 @@ import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
 import { NavigationContainer } from "@react-navigation/native";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const Complete = ({ navigation }) => {
   const detailJob = async (path) => {
@@ -25,6 +26,7 @@ const Complete = ({ navigation }) => {
         marginLeft: "2%",
         backgroundColor: "#FFFFFF",
         borderRadius: 10,
+        height:responsiveHeight(15)
       }}
     >
       <View style={{ flexDirection: "row", width: "100%", marginTop: 20 }}>
@@ -41,14 +43,15 @@ const Complete = ({ navigation }) => {
               style={{
                 right: 10,
                 width: 80,
-                height: 30,
-                backgroundColor: "#FFC44D",
+                height: 25,
+                borderRadius:5,
+                backgroundColor: "#2EB67D",
                 alignSelf: "center",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 18 }}>$ 40</Text>
+              <Text style={{ fontSize: 10 ,color:"#FFFFFF"}}>Completed</Text>
             </View>
           </View>
           <TouchableOpacity onPress={() => detailJob("CompleteDetails")}>
@@ -61,7 +64,7 @@ const Complete = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View
+      {/* <View
         style={{
           marginBottom: 10,
           width: "90%",
@@ -121,7 +124,7 @@ const Complete = ({ navigation }) => {
             $40/ hr
           </Text>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
