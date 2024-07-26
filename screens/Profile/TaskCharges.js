@@ -134,7 +134,7 @@ const TaskCharges = ({navigation}) => {
           title={"Save"}
           color="#FFC44D"
           width={responsiveWidth(80)}
-          onPress={() => navigation.navigate("WorkExperience")}
+          onPress={() => navigation.navigate("Checkout")}
         />
       </View>
     </View>
