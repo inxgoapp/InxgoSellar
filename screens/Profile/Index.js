@@ -23,6 +23,8 @@ import image_upload from "../../assets/image_upload.png";
 import arrowdown from "../../assets/svg/arrowdown.svg";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import PhoneNumberInput from "react-native-phone-number-input";
+import CustomButton from "../../components/CustomButton";
+
 import {
   responsiveHeight,
   responsiveWidth,
@@ -144,7 +146,7 @@ const Index = ({ navigation }) => {
           <Text style={profile.welcomeText}>Fill Your Profile</Text>
         </View>
 
-        <View style={{ height: responsiveHeight(17) }}>
+        {/* <View style={{ height: responsiveHeight(17) }}>
           <Image
             style={profile.image}
             source={image ? { uri: image } : image_upload}
@@ -155,13 +157,13 @@ const Index = ({ navigation }) => {
               source={require("../../assets/Editbtn.png")}
             ></Image>
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <ScrollView
           keyboardDismissMode={"on-drag"}
           contentContainerStyle={{ flexGrow: 1 }}
         >
-          <View style={{ height: responsiveHeight(65) }}>
+          <View style={{ height: responsiveHeight(70) }}>
             <View style={Style.InputContainer}>
               <TextInput
                 theme={{
@@ -357,9 +359,16 @@ const Index = ({ navigation }) => {
           )}
         </ScrollView>
 
-        <TouchableOpacity style={Style.appButton}>
-          <Text style={appStyle.appButtonText}>Continue</Text>
-        </TouchableOpacity>
+        <View
+        style={{ height: responsiveHeight(22),justifyContent:'center' }}
+      >
+        <CustomButton
+          title={"Save"}
+          color="#FFC44D"
+          width={responsiveWidth(80)}
+          onPress={() => navigation.navigate("Checkout")}
+        />
+      </View>
       </ScrollView>
     </SafeAreaView>
   );
