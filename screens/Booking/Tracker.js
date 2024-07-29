@@ -14,12 +14,14 @@ import hrs from "../../assets/icons/hrs.png";
 import Footer from "../Footer/Index";
 import profile from "../../style/profile";
 const arrow_back = require("../../assets/arrow_back.png");
+import CustomModal from "../../components/CustomModal";
 
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState(0);
   const [isPaused, setIsPaused] = useState(false); // New state to track if the timer is paused
   const [progressComplete, setProgressComplete] = useState(false);
+  // const [modalVisible, setModalVisible] = useState(false);
 
   const [buttonText, setButtonText] = useState("Start");
 
@@ -56,22 +58,46 @@ const Tracker = ({ navigation }) => {
     }
   };
 
-  const handleEndButtonClick = () => {
+  
+const handleTrackClient = () => {
+    console.log("yes pressed");
     setIsPlaying(false);
-    setIsPaused(false); // Ensure the timer is not paused when ending
-    setProgressComplete(true); // Complete the progress bar when ending
-  };
+    setProgressComplete(true);
+    setModalVisible(!modalVisible);
+    navigation.navigate('Home')
 
+  };
   // Convert time to HH:MM:SS format
   const formattedTime = new Date(time * 1000).toISOString().substr(11, 8);
+  const [modalVisible, setModalVisible] = useState(false);
 
   // Calculate progress for the circular progress bar
   // This will fill up in real-time as the timer counts up
   // Invert the progress value to make it appear anticlockwise
   const progress = progressComplete ? 1 : 1 - time / 28800; // 8 hours in seconds
+  const handleEndButtonClick = () => {
+    setIsPlaying(false);
+    setIsPaused(false); // Ensure the timer is not paused when ending
+    setProgressComplete(true);
+    setModalVisible(true); // Show the modal when the End button is clicked
+    // Complete the progress bar when ending
+  };
+  const handleEndButton = () => {
+    setModalVisible(!modalVisible);
+  };
 
   return (
+    
     <View style={styles.container}>
+     <CustomModal
+        title="Please confirm if the task has been successfully completed by selecting 'Yes' or 'No' below"
+        buttontitle="Yes"
+        buttontitle2="No"
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        onPressNO={() => setModalVisible(false)}
+        onPressYes={handleTrackClient}
+      />
       <View style={{ backgroundColor: "#FAFAFA" }}>
         <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
           <View style={profile.welcome}>
@@ -215,18 +241,15 @@ const Tracker = ({ navigation }) => {
       </View>
       <View style={styles.timerButtons}>
         <CustomButton
-          buttontitle={isPlaying && !isPaused ? "Pause" : "Start"}
+          title={isPlaying && !isPaused ? "Pause" : "Start"}
+          //title={"Finish"}
           color="#FFC44D"
           onPress={handleStartButtonClick}
-          width={120}
-          height={50}
         />
         <CustomButton
-          buttontitle={"End"}
-          color="#FFC44D"
+          title={"Finish"}
+          color="#FFF7E7"
           onPress={handleEndButtonClick}
-          width={120}
-          height={50}
         />
       </View>
       <Footer flag={"Booking"} navigation={navigation} />

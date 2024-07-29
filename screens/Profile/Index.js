@@ -197,7 +197,7 @@ const Index = ({ navigation }) => {
                 style={profile.inputSearch}
                 underlineColorAndroid="transparent"
                 onChange={handlePassword}
-                placeholder="LastName"
+                placeholder="Last Name"
               />
             </View>
             <View style={Style.cardContainer22}>
