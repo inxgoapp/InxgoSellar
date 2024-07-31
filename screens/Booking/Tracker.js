@@ -80,7 +80,9 @@ const handleTrackClient = () => {
     setIsPlaying(false);
     setIsPaused(false); // Ensure the timer is not paused when ending
     setProgressComplete(true);
-    setModalVisible(true); // Show the modal when the End button is clicked
+    setModalVisible(true);
+   // navigation.navigate("General")
+    // Show the modal when the End button is clicked
     // Complete the progress bar when ending
   };
   const handleEndButton = () => {

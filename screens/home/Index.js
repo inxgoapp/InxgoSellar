@@ -114,11 +114,11 @@ const Index = ({ navigation }) => {
               <Text style={appStyle.rowLabelText}>My Services</Text>
             </View>
 
-            <View style={appStyle.rightContainerSmall}>
+            {/* <View style={appStyle.rightContainerSmall}>
               <TouchableOpacity onPress={()=>navigation.navigate('ViewAll')}>
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
           <View style={appStyle.Myservicesall}>
             <TouchableOpacity onPress={HandleViewAll}>
