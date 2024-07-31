@@ -25,11 +25,11 @@ const EditProfile = ({ navigation }) => {
           height: responsiveHeight(5),
         }}
       >
-        <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Image style={profile.arrow_back} source={arrow_back} />
         </TouchableOpacity>
         <Text style={{ fontSize: 20, fontFamily:Medium ,right:110}}>Profile</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity>
           <Image source={require("../../assets/SettingP.png")} />
         </TouchableOpacity>
       </View>

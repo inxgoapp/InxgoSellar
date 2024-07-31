@@ -1,11 +1,16 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image,TouchableOpacity } from "react-native";
 import wallet from "../../style/wallet";
 import image_upload from "../../assets/icons/shield.png";
 import lock from "../../assets/icons/lock.png";
 import tick_blue from "../../assets/icons/tick_blue.png";
 import info from "../../assets/icons/info.png";
-
+import { Medium } from "../../constants/fonts";
+import CustomButton from "../../components/CustomButton";
+import {
+  responsiveWidth,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 const General = ({ navigation }) => {
   const detailJob = async (path) => {
     navigation.navigate(path);
@@ -32,9 +37,8 @@ const General = ({ navigation }) => {
           </View>
           <View style={wallet.LeftContainer}>
             <View style={{ flexDirection: "row" }}>
-              <Text numberOfLines={1} style={{ fontSize: 16, width: "110%" }}>
-                Security Updates!
-              </Text>
+              <Text numberOfLines={1} style={{ fontSize: 16, width: "110%" ,fontFamily:Medium}}>
+Mark Tuan              </Text>
             </View>
             <Text style={{ fontSize: 11 }}>26 May, 2023 | 16:39 PM</Text>
           </View>
@@ -56,6 +60,7 @@ const General = ({ navigation }) => {
             </View>
           </View>
         </View>
+        <View style={{height:responsiveHeight(8),justifyContent:'center'}}>
         <Text
           style={{
             fontSize: 14,
@@ -64,11 +69,23 @@ const General = ({ navigation }) => {
             paddingRight: "5%",
           }}
         >
-          Now InxGo has a Two-Factor Authentication. Try it now to make your
-          account more secure.
+         Please Confirm that supplier marked your Job as Completed.
         </Text>
+        </View>
+        
       </View>
+       <View
+        style={{ height: responsiveHeight(5),flexDirection:'row'}}
+      >
+        <TouchableOpacity style={{backgroundColor:"#FFC44D",height:25,width:70,justifyContent:'center',marginLeft:20,borderRadius:5}}>
+<Text style={{textAlign:'center'}}>Accepted</Text>
+      </TouchableOpacity>
 
+      <TouchableOpacity style={{backgroundColor:"black",height:25,width:70,marginLeft:20,borderRadius:5,justifyContent:'center'}}>
+<Text style={{textAlign:'center',color:"white"}}>Decline</Text>
+      </TouchableOpacity>
+      </View> 
+      
       {/* Repeat similar views for other sections */}
     </View>
   );

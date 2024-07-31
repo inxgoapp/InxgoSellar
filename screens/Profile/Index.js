@@ -178,12 +178,12 @@ const Index = ({ navigation }) => {
                 style={profile.inputSearch}
                 underlineColor="transparent"
                 onChange={handleEmail}
-                placeholder="Full Name"
+                placeholder="First Name"
               />
             </View>
             <View style={Style.cardContainer22}>
               <TextInput
-                secureTextEntry={true}
+                secureTextEntry={false}
                 underlineColor="transparent"
                 theme={{
                   colors: {

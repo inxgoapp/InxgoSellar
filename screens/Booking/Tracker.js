@@ -15,6 +15,7 @@ import Footer from "../Footer/Index";
 import profile from "../../style/profile";
 const arrow_back = require("../../assets/arrow_back.png");
 import CustomModal from "../../components/CustomModal";
+import { Regular } from "../../constants/fonts";
 
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -28,7 +29,7 @@ const Tracker = ({ navigation }) => {
   useEffect(() => {
     let intervalId;
     if (isPlaying && !isPaused) {
-      // Check if the timer is not paused
+      ///////// Check if the timer is not paused
       intervalId = setInterval(() => {
         setTime((prevTime) => {
           const newTime = prevTime + 1;
@@ -74,7 +75,7 @@ const handleTrackClient = () => {
   // Calculate progress for the circular progress bar
   // This will fill up in real-time as the timer counts up
   // Invert the progress value to make it appear anticlockwise
-  const progress = progressComplete ? 1 : 1 - time / 28800; // 8 hours in seconds
+  const progress = progressComplete ? 1 : 1 - time /28800; //  8 hours in seconds 28800
   const handleEndButtonClick = () => {
     setIsPlaying(false);
     setIsPaused(false); // Ensure the timer is not paused when ending
@@ -109,6 +110,13 @@ const handleTrackClient = () => {
       <View style={styles.infoContainer}>
         <Image style={wallet.image} source={image_upload} />
         <View style={wallet.LeftContainer}>
+        <View style={{ flexDirection:'row-reverse',width:responsiveWidth(70)}}>
+        <TouchableOpacity onPress={()=>navigation.navigate("CancelScreen")}>
+        <Text style={{ fontSize: 18,color:"#FFC44D",fontFamily:Regular}}>Cancel</Text>
+
+        </TouchableOpacity>
+        
+        </View> 
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
           </View>
@@ -221,7 +229,7 @@ const handleTrackClient = () => {
               marginBottom: 10,
             }}
           >
-            We have assigned you a plumbing task for an urgent repair at Sadiq
+            We have Assigned you a plumbing task for an urgent repair at Sadiq
             Centre, Lahore. Please make arrangements to visit the location as
             soon as possible and address the issue accordingly. Your expertise
             and prompt response are greatly appreciated.

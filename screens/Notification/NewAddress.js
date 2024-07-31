@@ -64,7 +64,7 @@ const NewAddress = ({navigation}) => {
       </View>
       <View style={{height:responsiveHeight(20)}}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("PaymentAdd")}
+          
           style={appStyle.downloadView}
         >
           <Text style={appStyle.download}>Add New Address</Text>
@@ -77,7 +77,7 @@ const NewAddress = ({navigation}) => {
           title={"Save"}
           color="#FFC44D"
           width={responsiveWidth(80)}
-          onPress={() => navigation.navigate("WorkExperience")}
+          onPress={() => navigation.navigate("Home")}
         />
       </View>
         </View>

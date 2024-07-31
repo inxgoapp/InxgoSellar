@@ -55,6 +55,7 @@ import WorkExperience from "../screens/Profile/WorkExperience";
 import Languages from "../screens/Profile/Languages";
 import NewAddress from "../screens/Notification/NewAddress";
 import Checkout from "../screens/Booking/Checkout";
+import CancelScreen from "../screens/CancelScreen/Cancel";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -76,7 +77,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "Home" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -86,6 +87,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Pin" component={Pin} />
       <Tab.Screen name="WorkExperience" component={WorkExperience} />
       <Tab.Screen name="Checkout" component={Checkout} />
+      <Tab.Screen name="CancelScreen" component={CancelScreen} />
 
       <Tab.Screen name="Faq" component={Faq} />
       <Tab.Screen name="Settings" component={Settings} />
