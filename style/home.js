@@ -205,7 +205,7 @@ const homeStyles = StyleSheet.create({
     textAlignVertical: "center",
     textAlign: "center",
     fontFamily: Regular,
-    fontSize: 8,
+    fontSize: 10,
     fontWeight: "400",
   },
 });

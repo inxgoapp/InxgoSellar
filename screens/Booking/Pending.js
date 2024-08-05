@@ -1,33 +1,199 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import wallet from "../../style/wallet";
-import image_upload from "../../assets/image_upload.png";
+import image_upload from "../../assets/Frame.png";
 import rightarrow from "../../assets/rightarrow.png";
-import circle from "../../assets/icons/circle.png";
-import location from "../../assets/icons/location.png";
+import location from "../../assets/assistant_direction.png";
 import hrs from "../../assets/icons/hrs.png";
+import circle from "../../assets/icons/circle.png";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
+import { Bold, Medium, Regular } from "../../constants/fonts";
+import CustomButton from "../../components/CustomButton";
 
 const Pending = ({ navigation }) => {
-  const detailJob = async (path) => {
-    navigation.navigate(path);
-  };
-
   return (
     <View
       style={{
-        // backgroundColor: "red",
-        justifyContent: "center",
-        alignItems: "center",
-        top: 50,
+        marginTop: "10%",
+        elevation: 10,
+        marginRight: "2%",
+        marginLeft: "2%",
+        backgroundColor: "#FFFFFF",
+        borderRadius: 10,
+        height: responsiveHeight(45),
       }}
     >
-      <View style={{ marginTop: 50 }}>
-        <Image source={require("../../assets/calendar.png")}></Image>
+      <View
+        style={{
+          flexDirection: "row",
+          width: responsiveWidth(100),
+          marginTop: 20,
+          height: responsiveHeight(8),
+          // backgroundColor: "pink",
+        }}
+      >
+        <Image style={wallet.image} source={image_upload} />
+        <View style={wallet.LeftContainer}>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={{ fontSize: 18, fontFamily: Medium, paddingTop: 10 }}>
+              Mark Tuan
+            </Text>
+          </View>
+          {/* <Text style={{ fontSize: 12 }}>Plumber</Text> */}
+        </View>
+        <View style={wallet.RightContainer}>
+          {/* <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+            <View
+              style={{
+                right: 10,
+                width: 70,
+                top: 10,
+                height: 22,
+                backgroundColor: "#9AEF56",
+                alignSelf: "center",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontSize: 10, fontFamily: Medium }}>Accepted</Text>
+            </View>
+          </View> */}
+        </View>
       </View>
-      <View style={{ marginTop: 50 }}>
-        <Text>No tasks scheduled</Text>
+      <View
+        style={{
+          height: responsiveHeight(5),
+          justifyContent: "center",
+          // backgroundColor: "green",
+        }}
+      >
+        <Image
+          source={require("../../assets/Line.png")}
+          style={{ width: responsiveWidth(90), marginLeft: 10 }}
+        />
       </View>
-      <View style={{ marginTop: 20 }}></View>
+      <View
+        style={{
+          marginBottom: 10,
+          width: "90%",
+          flexDirection: "row",
+          alignSelf: "center",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ width: "38%", marginLeft: 5, flexDirection: "row" }}>
+          <Image source={location} />
+          <Text style={{ fontSize: 12, fontWeight: Medium, marginLeft: 2 }}>
+            Sadiq Centre LHR
+          </Text>
+        </View>
+        <View
+          style={{
+            width: "30%",
+            left: 10,
+            flexDirection: "row",
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image style={{ width: 15, height: 15 }} source={circle} />
+          <Text
+            style={{
+              fontSize: 12,
+              textAlign: "center",
+              fontWeight: Medium,
+              marginLeft: 2,
+            }}
+          >
+            4 hrs
+          </Text>
+        </View>
+        <View
+          style={{
+            width: "30%",
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            right: 5,
+            flexDirection: "row",
+          }}
+        >
+          <Image style={{ width: 15, height: 15 }} source={hrs} />
+          <Text
+            style={{
+              fontSize: 12,
+              textAlign: "center",
+              fontWeight: Medium,
+              marginLeft: 2,
+            }}
+          >
+            $40/ hr
+          </Text>
+        </View>
+      </View>
+      <View
+        style={{
+          width: responsiveWidth(90),
+          flexDirection: "row",
+          alignSelf: "center",
+          justifyContent: "space-around",
+          alignItems: "center",
+          height: responsiveHeight(5),
+          //  backgroundColor:'pink'
+        }}
+      >
+        <Text style={{ fontSize: 10, fontWeight: Regular }}>Date & Time </Text>
+
+        <Text
+          style={{
+            fontSize: 12,
+            textAlign: "center",
+            fontFamily: Bold,
+          }}
+        >
+          June 01, 2023 /11:00 AM{" "}
+        </Text>
+      </View>
+      <View style={{ height: responsiveHeight(5), justifyContent: "center" }}>
+        <Image
+          source={require("../../assets/Line.png")}
+          style={{ width: responsiveWidth(90), marginLeft: 10 }}
+        />
+      </View>
+      <View style={{width:responsiveWidth(90)}}>
+        <Text style ={{fontSize:10,fontFamily:Regular,marginLeft:20}}>
+          We have assigned you a plumbing task for an urgent repair at Sadiq
+          Centre, Lahore. Please make arrangements to visit the location as soon
+          as possible and address the issue accordingly. Your expertise and
+          prompt response are greatly appreciated.
+        </Text>
+      </View>
+      <View
+        style={{
+          height: responsiveHeight(10),
+           justifyContent:'space-evenly',
+          flexDirection:'row'
+          // backgroundColor: "pink",
+        }}
+      >
+        <CustomButton
+          title={"Accept"}
+          color="#9AEF56"
+          width={responsiveWidth(50)}
+          //  onPress={() => navigation.navigate("Accepted")}
+        />
+         <CustomButton
+          title={"Reject"}
+          color="#FF0000"
+          width={responsiveWidth(35)}
+          // onPress={() => navigation.navigate("WorkExperience")}
+        />
+      </View>
     </View>
   );
 };
