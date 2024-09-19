@@ -26,7 +26,7 @@ const Summary = ({navigation}) => {
           delivering high-quality workmanship and outstanding customer service.
         </Text>
       </View>
-      <View style={{ height: responsiveHeight(70),justifyContent:'flex-end' }}>
+      <View style={{ height: responsiveHeight(70),justifyContent:'center' }}>
         <CustomButton
           title={"Save"}
           color="#FFC44D"
